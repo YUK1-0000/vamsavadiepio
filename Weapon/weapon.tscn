@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfsiom3bmd31n"]
+
+[ext_resource type="Texture2D" uid="uid://cmbksv1enqmud" path="res://icon.svg" id="3_sbv7c"]
+
+[node name="Weapon" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(32, 0)
+scale = Vector2(0.5, 0.125)
+texture = ExtResource("3_sbv7c")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(56, 0)
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="IntervalTimer" type="Timer" parent="Timers"]
+one_shot = true

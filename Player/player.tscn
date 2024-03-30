@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1cqao3ghyftq"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_15nah"]
+[ext_resource type="Texture2D" uid="uid://cmbksv1enqmud" path="res://icon.svg" id="1_idbvv"]
+[ext_resource type="PackedScene" uid="uid://c4qmkdijgakj8" path="res://Bullet/bullet.tscn" id="2_b522p"]
+[ext_resource type="PackedScene" uid="uid://cfsiom3bmd31n" path="res://Weapon/weapon.tscn" id="2_rms77"]
+[ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://hurt_box.tscn" id="5_1d6ur"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tq6hi"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bxk7b"]
+radius = 32.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 15
+motion_mode = 1
+script = ExtResource("1_15nah")
+bullet_scene = ExtResource("2_b522p")
+moving_mode = 1
+hp_max = 100.0
+speed = 500.0
+acceleration = 500.0
+friction = 100.0
+recoil = 60.0
+damage = 10.0
+knockback = 150.0
+
+[node name="Weapon" parent="." instance=ExtResource("2_rms77")]
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_idbvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tq6hi")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = -40.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HurtBox" parent="." instance=ExtResource("5_1d6ur")]
+collision_layer = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("CircleShape2D_bxk7b")
+
+[editable path="HurtBox"]

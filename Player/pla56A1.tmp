@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1cqao3ghyftq"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_15nah"]
+[ext_resource type="Texture2D" uid="uid://cmbksv1enqmud" path="res://icon.svg" id="1_idbvv"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_15nah")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_idbvv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(32, 0)
+
+[node name="Weapons" type="Node2D" parent="."]

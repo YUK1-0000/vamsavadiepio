@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://bauf6r6x8d263"]
+
+[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_kw0dt"]
+[ext_resource type="Texture2D" uid="uid://cmbksv1enqmud" path="res://icon.svg" id="2_5pbdn"]
+[ext_resource type="PackedScene" uid="uid://b38cda5v1w0oc" path="res://hit_box.tscn" id="3_puoo0"]
+[ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://hurt_box.tscn" id="4_ocpmc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v7tqv"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7ubt"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ohm2x"]
+radius = 32.0
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 7
+motion_mode = 1
+script = ExtResource("1_kw0dt")
+hp_max = 100.0
+speed = 100.0
+acceleration = 200.0
+friction = 200.0
+damage = 1.0
+knockback = 50.0
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5pbdn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v7tqv")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -64.0
+offset_top = -96.0
+offset_right = 64.0
+offset_bottom = -73.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HitBox" parent="." instance=ExtResource("3_puoo0")]
+collision_mask = 2
+HitType = 1
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("CircleShape2D_q7ubt")
+
+[node name="DisableTimer" parent="HitBox" index="1"]
+wait_time = 0.1
+one_shot = true
+
+[node name="HurtBox" parent="." instance=ExtResource("4_ocpmc")]
+collision_layer = 4
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("CircleShape2D_ohm2x")
+
+[editable path="HitBox"]
+[editable path="HurtBox"]

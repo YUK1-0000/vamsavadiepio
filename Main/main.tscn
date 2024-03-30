@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxg2y4uovcik8"]
+
+[ext_resource type="PackedScene" uid="uid://c1cqao3ghyftq" path="res://Player/player.tscn" id="1_j50n4"]
+[ext_resource type="Texture2D" uid="uid://cmbksv1enqmud" path="res://icon.svg" id="2_wsysp"]
+[ext_resource type="PackedScene" uid="uid://bauf6r6x8d263" path="res://Enemy/enemy.tscn" id="3_oe1cp"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(480, 304)
+texture = ExtResource("2_wsysp")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(-584, -352)
+texture = ExtResource("2_wsysp")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(-584, 312)
+texture = ExtResource("2_wsysp")
+
+[node name="Icon4" type="Sprite2D" parent="."]
+position = Vector2(480, -360)
+texture = ExtResource("2_wsysp")
+
+[node name="Player" parent="." instance=ExtResource("1_j50n4")]
+position = Vector2(40, -16)
+
+[node name="Enemy" parent="." instance=ExtResource("3_oe1cp")]
+position = Vector2(-168, -208)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_oe1cp")]
+position = Vector2(-200, 176)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_oe1cp")]
+position = Vector2(376, 168)
+
+[node name="Enemy4" parent="." instance=ExtResource("3_oe1cp")]
+position = Vector2(296, -240)
