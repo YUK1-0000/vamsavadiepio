@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxg2y4uovcik8"]
+
+[ext_resource type="Texture2D" uid="uid://cmbksv1enqmud" path="res://icon.svg" id="1_wkwmc"]
+[ext_resource type="PackedScene" uid="uid://dixgy203ehtbw" path="res://Menu/main_menu.tscn" id="2_xsk0x"]
+
+[node name="World" type="Node2D"]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1152, 648)
+
+[node name="Icon" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(576, 324)
+scale = Vector2(9, 5.0625)
+texture = ExtResource("1_wkwmc")
+
+[node name="MainMenu" parent="." instance=ExtResource("2_xsk0x")]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Bullets" type="Node2D" parent="."]

@@ -5,12 +5,12 @@
 [node name="Weapon" type="Node2D"]
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(32, 0)
-scale = Vector2(0.5, 0.125)
+position = Vector2(28, 0)
+scale = Vector2(0.4375, 0.125)
 texture = ExtResource("3_sbv7c")
 
 [node name="Muzzle" type="Marker2D" parent="."]
-position = Vector2(56, 0)
+position = Vector2(24, 0)
 
 [node name="Timers" type="Node" parent="."]
 

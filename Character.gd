@@ -42,9 +42,5 @@ func damaged(damage: float) -> void:
 func knockedback(knockback: Vector2) -> void:
 	velocity += knockback
 
-func death() -> void:
-	if not hp:
-		die()
-
 func die() -> void:
 	queue_free()

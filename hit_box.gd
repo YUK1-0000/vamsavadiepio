@@ -2,13 +2,11 @@ extends Area2D
 
 class_name HitBox
 
-@export_enum("Once", "CoolDown") var HitType: int
+enum HitType {ONCE, COOLDOWN}
+@export var hit_type: HitType
 
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var disable_timer: Timer = $DisableTimer
-
-const ONCE := 0
-const COOLDOWN := 1
 
 func _on_area_entered(area: HurtBox) -> void:
 	var attacker: Character = get_parent()
@@ -16,7 +14,7 @@ func _on_area_entered(area: HurtBox) -> void:
 	
 	attacker.attack_to(attacked_chara)
 	
-	if HitType == COOLDOWN:
+	if hit_type == HitType.COOLDOWN:
 		collision.call_deferred("set", "disabled", true)
 		disable_timer.start()
 

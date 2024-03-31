@@ -36,8 +36,6 @@ texture = ExtResource("1_idbvv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tq6hi")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Label" type="Label" parent="."]
 offset_left = -64.0
 offset_top = -64.0
@@ -51,5 +49,7 @@ collision_layer = 2
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource("CircleShape2D_bxk7b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [editable path="HurtBox"]
