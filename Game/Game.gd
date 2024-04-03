@@ -5,7 +5,6 @@ extends Node
 @onready var enemies: Node2D = world.get_node("Enemies")
 @onready var bullets: Node2D = world.get_node("Bullets")
 @onready var spawn_timer: Timer = world.get_node("SpawnTimer")
-#@onready var camera: Camera2D = world.get_node("Camera2D")
 
 var player: Player
 var spawn_distance := 800

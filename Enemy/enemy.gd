@@ -16,3 +16,4 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if not hp:
 		die()
+		Game.player.exp += exp

@@ -4,8 +4,8 @@ class_name Player
 
 @export var bullet_scene: PackedScene
 
-@onready var weapon := $Weapon
-@onready var interval_timer := $Weapon/Timers/IntervalTimer
+@onready var gun := $Gun
+@onready var interval_timer := $Gun/Timers/IntervalTimer
 
 var auto_fire := false
 
@@ -13,7 +13,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("q"):
 		auto_fire != auto_fire
 	
-	weapon.look_at(get_global_mouse_position())
+	gun.look_at(get_global_mouse_position())
 	if auto_fire or Input.is_action_pressed("fire") and not interval_timer.time_left:
 		fire()
 	
@@ -30,9 +30,9 @@ func _physics_process(delta: float) -> void:
 
 func fire() -> void:
 	var b: Bullet = bullet_scene.instantiate()
-	b.global_position = weapon.get_node("Muzzle").global_position
-	b.rotate(weapon.rotation)
-	b.direction = Vector2.RIGHT.rotated(weapon.rotation)
+	b.global_position = gun.get_node("Muzzle").global_position
+	b.rotate(gun.rotation)
+	b.direction = Vector2.RIGHT.rotated(gun.rotation)
 	b.damage = damage
 	b.knockback = knockback
 	velocity -= Vector2.RIGHT.rotated(b.rotation) * recoil

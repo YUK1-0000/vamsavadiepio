@@ -9,10 +9,10 @@ enum HitType {ONCE, COOLDOWN}
 @onready var disable_timer: Timer = $DisableTimer
 
 func _on_area_entered(area: HurtBox) -> void:
-	var attacker: Character = get_parent()
-	var attacked_chara: Character = area.get_parent()
+	var myself: Character = get_parent()
+	var collided_chara: Character = area.get_parent()
 	
-	attacker.attack_to(attacked_chara)
+	myself.bump_into(collided_chara)
 	
 	if hit_type == HitType.COOLDOWN:
 		collision.call_deferred("set", "disabled", true)

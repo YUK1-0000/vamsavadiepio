@@ -5,16 +5,17 @@ class_name Character
 enum MovingMode {CONSTANT, ACCELERATION}
 @export var moving_mode: MovingMode
 
-@export var hp_max: float
 @export var direction: Vector2
 @export var speed: float
 @export var acceleration: float
 @export var friction: float
-
+@export var hp_max: float
+@export var level: int
+@export var exp: int
 @export var recoil: float
 @export var damage: float
 @export var knockback: float
-@export var penetrate: float = INF
+@export var penetration: float = INF
 
 @onready var hp := hp_max
 
@@ -29,12 +30,12 @@ func movement(delta: float) -> void:
 				velocity = velocity.move_toward(direction * speed, friction * delta)
 
 
-func attack_to(character: Character) -> void:
+func bump_into(character: Character) -> void:
 	character.damaged(damage)
 	character.knockedback(velocity.normalized() * knockback)
-	if not penetrate:
+	if not penetration:
 		die()
-	penetrate -= 1
+	penetration -= 1
 
 func damaged(damage: float) -> void:
 	hp = max(0, hp - damage)

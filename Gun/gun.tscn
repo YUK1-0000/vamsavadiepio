@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cmbksv1enqmud" path="res://icon.svg" id="3_sbv7c"]
 
-[node name="Weapon" type="Node2D"]
+[node name="Gun" type="Node2D"]
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(28, 0)
