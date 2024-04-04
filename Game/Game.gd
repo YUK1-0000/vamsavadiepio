@@ -8,12 +8,16 @@ extends Node
 
 var player: Player
 var spawn_distance := 800
+var survival_time: float
 
 const PLAYER_SCENE := preload("res://Player/player.tscn")
 const ENEMY_SCENE := preload("res://Enemy/enemy.tscn")
 
 func _ready() -> void:
 	spawn_timer.timeout.connect(spawn_enemy)
+
+func _process(delta: float) -> void:
+	survival_time += delta
 
 func game_start() -> void:
 	player = PLAYER_SCENE.instantiate()
@@ -25,7 +29,6 @@ func game_over() -> void:
 	for enemy in enemies.get_children():
 		enemy.queue_free()
 	main_menu.show()
-	
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_enemy()
@@ -33,4 +36,5 @@ func _on_spawn_timer_timeout() -> void:
 func spawn_enemy() -> void:
 	var enemy: Enemy = ENEMY_SCENE.instantiate()
 	enemy.global_position = player.global_position + Vector2.RIGHT.rotated(randf_range(0, TAU)) * spawn_distance
+	enemy.hp_max += survival_time
 	enemies.add_child(enemy)
