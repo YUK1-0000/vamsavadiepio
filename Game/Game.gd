@@ -23,12 +23,12 @@ func _process(delta: float) -> void:
 		world.paused = true
 	survival_time += delta
 
-func game_start() -> void:
+func start() -> void:
 	player = PLAYER_SCENE.instantiate()
 	world.add_child(player)
 	spawn_timer.start()
 
-func game_over() -> void:
+func over() -> void:
 	spawn_timer.stop()
 	for enemy in enemies.get_children():
 		enemy.queue_free()

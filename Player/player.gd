@@ -11,8 +11,7 @@ var auto_fire := false
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("menu"):
-		Game.pause_menu.show()
-		get_tree().paused = true
+		pause()
 	
 	if Input.is_action_just_pressed("q"):
 		auto_fire != auto_fire
@@ -26,11 +25,16 @@ func _physics_process(delta: float) -> void:
 	movement(delta)
 	move_and_slide()
 	
+	$Label.text = str(hp)
+	
 	if not hp:
 		die()
-		Game.game_over()
+		Game.over()
 	
-	$Label.text = str(hp)
+
+func pause() -> void:
+	Game.pause_menu.show()
+	get_tree().paused = true
 
 func fire() -> void:
 	var b: Bullet = bullet_scene.instantiate()

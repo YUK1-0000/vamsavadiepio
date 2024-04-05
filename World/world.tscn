@@ -21,7 +21,6 @@ texture = ExtResource("1_wkwmc")
 [node name="MainMenu" parent="." instance=ExtResource("2_xsk0x")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_dmt6h")]
-process_mode = 3
 visible = false
 
 [node name="Enemies" type="Node2D" parent="."]
