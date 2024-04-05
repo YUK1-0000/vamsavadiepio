@@ -4,8 +4,8 @@ class_name Player
 
 @export var bullet_scene: PackedScene
 
-@onready var gun := $Gun
-@onready var interval_timer := $Gun/Timers/IntervalTimer
+@onready var gun: Node2D = $Gun
+@onready var interval_timer: Timer = $Gun/IntervalTimer
 
 var auto_fire := false
 var required_exp: int = 100

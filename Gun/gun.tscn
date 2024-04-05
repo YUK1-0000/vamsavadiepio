@@ -12,7 +12,5 @@ texture = ExtResource("3_sbv7c")
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(24, 0)
 
-[node name="Timers" type="Node" parent="."]
-
-[node name="IntervalTimer" type="Timer" parent="Timers"]
+[node name="IntervalTimer" type="Timer" parent="."]
 one_shot = true
