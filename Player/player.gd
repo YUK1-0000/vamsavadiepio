@@ -8,13 +8,20 @@ class_name Player
 @onready var interval_timer := $Gun/Timers/IntervalTimer
 
 var auto_fire := false
+var required_exp: int = 100
+var upgrade_point: int
 
 func _physics_process(delta: float) -> void:
+	print("p", upgrade_point, " r", required_exp)
 	if Input.is_action_just_pressed("menu"):
 		pause()
 	
 	if Input.is_action_just_pressed("q"):
 		auto_fire != auto_fire
+	
+	while exp >= required_exp:
+		upgrade_point += 1
+		required_exp += 100
 	
 	gun.look_at(get_global_mouse_position())
 	if auto_fire or Input.is_action_pressed("fire") and not interval_timer.time_left:
