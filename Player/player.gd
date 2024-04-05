@@ -37,7 +37,6 @@ func _physics_process(delta: float) -> void:
 	if not hp:
 		die()
 		Game.over()
-	
 
 func pause() -> void:
 	Game.pause_menu.show()
