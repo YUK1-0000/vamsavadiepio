@@ -10,6 +10,10 @@ class_name Player
 var auto_fire := false
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("menu"):
+		Game.pause_menu.show()
+		get_tree().paused = true
+	
 	if Input.is_action_just_pressed("q"):
 		auto_fire != auto_fire
 	

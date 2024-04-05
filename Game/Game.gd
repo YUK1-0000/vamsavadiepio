@@ -1,7 +1,8 @@
 extends Node
 
 @onready var world: Node2D = get_tree().root.get_node("World")
-@onready var main_menu: Control = world.get_node("MainMenu")
+@onready var main_menu: CanvasLayer = world.get_node("MainMenu")
+@onready var pause_menu: CanvasLayer = world.get_node("PauseMenu")
 @onready var enemies: Node2D = world.get_node("Enemies")
 @onready var bullets: Node2D = world.get_node("Bullets")
 @onready var spawn_timer: Timer = world.get_node("SpawnTimer")
@@ -17,6 +18,9 @@ func _ready() -> void:
 	spawn_timer.timeout.connect(spawn_enemy)
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("menu"):
+		pause_menu.show()
+		world.paused = true
 	survival_time += delta
 
 func game_start() -> void:
