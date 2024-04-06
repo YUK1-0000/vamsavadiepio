@@ -3,6 +3,7 @@ extends Node
 @onready var world: Node2D = get_tree().root.get_node("World")
 @onready var main_menu: CanvasLayer = world.get_node("MainMenu")
 @onready var pause_menu: CanvasLayer = world.get_node("PauseMenu")
+@onready var result_menu: CanvasLayer = world.get_node("ResultMenu")
 @onready var enemies: Node2D = world.get_node("Enemies")
 @onready var bullets: Node2D = world.get_node("Bullets")
 @onready var spawn_timer: Timer = world.get_node("SpawnTimer")
@@ -32,7 +33,7 @@ func over() -> void:
 	spawn_timer.stop()
 	for enemy in enemies.get_children():
 		enemy.queue_free()
-	main_menu.show()
+	result_menu.show()
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_enemy()

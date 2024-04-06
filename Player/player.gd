@@ -12,7 +12,6 @@ var required_exp: int = 100
 var upgrade_point: int
 
 func _physics_process(delta: float) -> void:
-	print("p", upgrade_point, " r", required_exp)
 	if Input.is_action_just_pressed("menu"):
 		pause()
 	
