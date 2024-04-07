@@ -14,14 +14,14 @@ func _physics_process(delta: float) -> void:
 		pause()
 	
 	if Input.is_action_just_pressed("q"):
-		auto_fire != auto_fire
+		auto_fire = not auto_fire
 	
 	while exp >= required_exp:
 		upgrade_point += 1
 		required_exp += 100
 	
 	gun.look_at(get_global_mouse_position())
-	if auto_fire or Input.is_action_pressed("fire") and not interval_timer.time_left:
+	if (auto_fire or Input.is_action_pressed("fire")) and not interval_timer.time_left:
 		gun.shoot()
 	
 	direction = Input.get_vector("move_left", "move_right", "move_upward", "move_downward")

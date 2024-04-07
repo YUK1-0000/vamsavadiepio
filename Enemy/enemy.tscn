@@ -20,6 +20,12 @@ collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_kw0dt")
 moving_mode = 1
+speed = 100
+acceleration = 200
+friction = 200
+hp_max = 10
+exp = 10
+damage = 1
 
 [node name="Icon" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

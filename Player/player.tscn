@@ -21,9 +21,9 @@ script = ExtResource("1_15nah")
 moving_mode = 1
 speed = 300
 acceleration = 300
-friction = 300
+friction = 100
 hp_max = 10
-recoil = 100
+recoil = 50
 damage = 1
 knockback = 100
 
