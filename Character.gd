@@ -4,17 +4,16 @@ class_name Character
 
 enum MovingMode {CONSTANT, ACCELERATION}
 @export var moving_mode: MovingMode
-
 @export var direction: Vector2
-@export var speed: float
-@export var acceleration: float
-@export var friction: float
-@export var hp_max: float
+@export var speed: int
+@export var acceleration: int
+@export var friction: int
+@export var hp_max: int
 @export var level: int
 @export var exp: int
-@export var recoil: float
-@export var damage: float
-@export var knockback: float
+@export var recoil: int
+@export var damage: int
+@export var knockback: int
 @export var penetration: float = INF
 
 @onready var hp := hp_max
@@ -28,7 +27,6 @@ func movement(delta: float) -> void:
 				velocity = velocity.move_toward(direction * speed, acceleration * delta)
 			else:
 				velocity = velocity.move_toward(direction * speed, friction * delta)
-
 
 func bump_into(character: Character) -> void:
 	character.damaged(damage)

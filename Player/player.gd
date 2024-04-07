@@ -2,8 +2,6 @@ extends Character
 
 class_name Player
 
-@export var bullet_scene: PackedScene
-
 @onready var gun: Node2D = $Gun
 @onready var interval_timer: Timer = $Gun/IntervalTimer
 
@@ -24,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	
 	gun.look_at(get_global_mouse_position())
 	if auto_fire or Input.is_action_pressed("fire") and not interval_timer.time_left:
-		fire()
+		gun.shoot()
 	
 	direction = Input.get_vector("move_left", "move_right", "move_upward", "move_downward")
 	
@@ -40,14 +38,3 @@ func _physics_process(delta: float) -> void:
 func pause() -> void:
 	Game.pause_menu.show()
 	get_tree().paused = true
-
-func fire() -> void:
-	var b: Bullet = bullet_scene.instantiate()
-	b.global_position = gun.get_node("Muzzle").global_position
-	b.rotate(gun.rotation)
-	b.direction = Vector2.RIGHT.rotated(gun.rotation)
-	b.damage = damage
-	b.knockback = knockback
-	velocity -= Vector2.RIGHT.rotated(b.rotation) * recoil
-	Game.bullets.add_child(b)
-	interval_timer.start()

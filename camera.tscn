@@ -3,11 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://b6xoo4pem6rgy" path="res://Menu/hud.tscn" id="1_jy6yy"]
 
 [node name="Camera" type="Camera2D"]
+position_smoothing_enabled = true
+position_smoothing_speed = 16.0
 
 [node name="HUD" parent="." instance=ExtResource("1_jy6yy")]
-anchors_preset = 10
-anchor_bottom = 0.0
-grow_vertical = 1
 
 [node name="SurvivalTimeLabel" parent="HUD" index="1"]
 offset_left = -52.0

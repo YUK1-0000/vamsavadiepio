@@ -18,17 +18,17 @@ collision_layer = 2
 collision_mask = 15
 motion_mode = 1
 script = ExtResource("1_15nah")
-bullet_scene = ExtResource("2_b522p")
 moving_mode = 1
-speed = 300.0
-acceleration = 300.0
-friction = 100.0
-hp_max = 10.0
-recoil = 60.0
-damage = 10.0
-knockback = 150.0
+speed = 300
+acceleration = 300
+friction = 300
+hp_max = 10
+recoil = 100
+damage = 1
+knockback = 100
 
 [node name="Gun" parent="." instance=ExtResource("3_ya438")]
+bullet_scene = ExtResource("2_b522p")
 
 [node name="Icon" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
