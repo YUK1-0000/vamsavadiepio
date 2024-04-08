@@ -19,12 +19,12 @@ collision_mask = 15
 motion_mode = 1
 script = ExtResource("1_15nah")
 moving_mode = 1
-speed = 300
-acceleration = 300
+speed = 200
+acceleration = 200
 friction = 100
-hp_max = 10
+hp_max = 20
 recoil = 50
-damage = 1
+damage = 10
 knockback = 100
 
 [node name="Gun" parent="." instance=ExtResource("3_ya438")]

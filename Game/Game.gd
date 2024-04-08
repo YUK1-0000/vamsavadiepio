@@ -40,7 +40,6 @@ func _on_spawn_timer_timeout() -> void:
 	spawn_enemy()
 
 func spawn_enemy() -> void:
-	print("Enemy Spawn")
 	var enemy: Enemy = ENEMY_SCENE.instantiate()
 	enemy.global_position = player.global_position + Vector2.RIGHT.rotated(randf_range(0, TAU)) * spawn_distance
 	enemies.add_child(enemy)

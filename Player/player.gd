@@ -18,7 +18,8 @@ func _physics_process(delta: float) -> void:
 	
 	while exp >= required_exp:
 		upgrade_point += 1
-		required_exp += 100
+		exp = 0
+		required_exp *= 2
 	
 	gun.look_at(get_global_mouse_position())
 	if (auto_fire or Input.is_action_pressed("fire")) and not interval_timer.time_left:
