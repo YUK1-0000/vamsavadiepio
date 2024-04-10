@@ -4,15 +4,14 @@ class_name Player
 
 @onready var gun: Node2D = $Gun
 @onready var interval_timer: Timer = $Gun/IntervalTimer
+@onready var hud: CanvasLayer = $Camera2D/HUD
+@onready var camera: Camera2D = $Camera2D
 
 var auto_fire := false
 var required_exp: int = 100
 var upgrade_point: int
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("menu"):
-		pause()
-	
 	if Input.is_action_just_pressed("q"):
 		auto_fire = not auto_fire
 	
@@ -34,8 +33,5 @@ func _physics_process(delta: float) -> void:
 	
 	if not hp:
 		die()
-		Game.over()
+		Game.game_over.emit()
 
-func pause() -> void:
-	Game.pause_menu.show()
-	get_tree().paused = true

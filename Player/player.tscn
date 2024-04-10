@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1cqao3ghyftq"]
+[gd_scene load_steps=8 format=3 uid="uid://c1cqao3ghyftq"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_15nah"]
 [ext_resource type="Texture2D" uid="uid://cmbksv1enqmud" path="res://icon.svg" id="1_idbvv"]
 [ext_resource type="PackedScene" uid="uid://c4qmkdijgakj8" path="res://Bullet/bullet.tscn" id="2_b522p"]
 [ext_resource type="PackedScene" uid="uid://cfsiom3bmd31n" path="res://Gun/gun.tscn" id="3_ya438"]
 [ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://hurt_box.tscn" id="5_1d6ur"]
-[ext_resource type="PackedScene" uid="uid://b0n2n4ssr43ho" path="res://camera.tscn" id="6_w53rh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tq6hi"]
 radius = 24.0
@@ -51,6 +50,8 @@ collision_layer = 2
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource("CircleShape2D_bxk7b")
 
-[node name="Camera" parent="." instance=ExtResource("6_w53rh")]
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 16.0
 
 [editable path="HurtBox"]
