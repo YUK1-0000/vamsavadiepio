@@ -4,7 +4,6 @@ class_name Player
 
 @onready var gun: Node2D = $Gun
 @onready var interval_timer: Timer = $Gun/IntervalTimer
-@onready var hud: CanvasLayer = $Camera2D/HUD
 @onready var camera: Camera2D = $Camera2D
 
 var auto_fire := false

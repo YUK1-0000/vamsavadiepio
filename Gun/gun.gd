@@ -1,5 +1,6 @@
-class_name Gun
 extends Node2D
+
+class_name Gun
 
 @export var bullet_scene: PackedScene
 
@@ -11,7 +12,9 @@ func shoot() -> void:
 	bullet.rotate(rotation)
 	bullet.direction = Vector2.RIGHT.rotated(rotation)
 	bullet.damage = shooter.damage
-	bullet.knockback = shooter.knockback
-	shooter.knockedback(Vector2.RIGHT.rotated(bullet.rotation + PI) * shooter.recoil)
+	bullet.knock_back = shooter.knock_back
+	bullet.crit_rate = shooter.crit_rate
+	bullet.crit_dmg = shooter.crit_dmg
+	shooter.get_knocked_back(Vector2.RIGHT.rotated(bullet.rotation + PI) * shooter.recoil)
 	shooter.interval_timer.start()
 	Game.bullets.add_child(bullet)
