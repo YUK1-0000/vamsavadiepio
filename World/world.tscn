@@ -6,8 +6,6 @@
 
 [node name="World" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("6_3hx2s")]
-
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Bullets" type="Node2D" parent="."]
@@ -25,3 +23,13 @@ texture = ExtResource("1_wkwmc")
 [node name="SpawnTimer" type="Timer" parent="."]
 
 [node name="UI" parent="." instance=ExtResource("3_27rxw")]
+
+[node name="Player" parent="." instance=ExtResource("6_3hx2s")]
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(1152, 648)
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
+position = Vector2(-576, -324)
+polygon = PackedVector2Array(-576, 324, 576, 324, 576, -324, -576, -324, -576, 324, -629, 382, -624, -368, 672, -412, 654, 394, -629, 382)

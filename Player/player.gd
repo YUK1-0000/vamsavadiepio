@@ -10,6 +10,10 @@ var auto_fire := false
 var required_exp: int = 100
 var upgrade_point: int
 
+func _ready():
+	Game.game_start.connect(enable_camera)
+	Game.game_reset.connect(disable_camera)
+
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("q"):
 		auto_fire = not auto_fire
@@ -31,6 +35,10 @@ func _physics_process(delta: float) -> void:
 	$Label.text = str(hp)
 	
 	if not hp:
-		die()
 		Game.game_over.emit()
 
+func enable_camera() -> void:
+	camera.enabled = true
+
+func disable_camera() -> void:
+	camera.enabled = false

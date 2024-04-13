@@ -26,6 +26,7 @@ friction = 200
 hp_max = 10
 exp = 10
 damage = 1
+knock_back = 20
 
 [node name="Icon" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
