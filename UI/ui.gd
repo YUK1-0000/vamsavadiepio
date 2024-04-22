@@ -1,24 +1,24 @@
 extends CanvasLayer
 
 @onready var menus: Control = $Menus
-@onready var main_menu: Control = $Menus/MainMenu
-@onready var upgrade_menu: Control = $Menus/UpgradeMenu
-@onready var pause_menu: Control = $Menus/PauseMenu
-@onready var result_menu: Control = $Menus/ResultMenu
+@onready var main_menu: CenterContainer = $Menus/MainMenu
+@onready var upgrade_menu: CenterContainer = $Menus/UpgradeMenu
+@onready var pause_menu: CenterContainer = $Menus/PauseMenu
+@onready var result_menu: CenterContainer = $Menus/ResultMenu
 @onready var hud: Control = $HUD
 
 func _ready() -> void:
 	Game.game_start.connect(game_start)
-	Game.game_pause.connect(game_pause)
 	Game.game_resume.connect(game_resume)
 	Game.game_reset.connect(game_reset)
 	Game.game_over.connect(game_over)
 
 func _process(_delta: float) -> void:
 	update_hud()
-	if Game.is_started and Input.is_action_just_pressed("menu"):
+	if Game.is_started and Game.is_started and Input.is_action_just_pressed("menu"):
 		Game.game_pause.emit()
-	if Input.is_action_just_pressed("upgrade"):
+		show_pause_menu()
+	if Game.is_started and Input.is_action_just_pressed("upgrade"):
 		Game.game_pause.emit()
 		show_upgrade_menu()
 
@@ -31,27 +31,27 @@ func update_hud() -> void:
 			"\nP: ", Game.player.upgrade_point
 		)
 
-func menus_hide() -> void:
+func hide_menus() -> void:
 	for menu in menus.get_children():
 		menu.hide()
 
 func game_start() -> void:
-	menus_hide()
+	hide_menus()
 	hud.show()
 
 func show_upgrade_menu() -> void:
 	upgrade_menu.show()
 
-func game_pause() -> void:
+func show_pause_menu() -> void:
 	pause_menu.show()
 	hud.hide()
 
 func game_resume() -> void:
-	menus_hide()
+	hide_menus()
 	hud.show()
 
 func game_reset() -> void:
-	menus_hide()
+	hide_menus()
 	main_menu.show()
 
 func game_over() -> void:

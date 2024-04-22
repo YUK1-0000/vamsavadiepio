@@ -13,12 +13,19 @@ script = ExtResource("1_trhuw")
 
 [node name="HUD" parent="." instance=ExtResource("4_3dlix")]
 visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Menus" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 0
+offset_left = 576.0
+offset_top = 324.0
+offset_right = 576.0
+offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -41,10 +48,10 @@ visible = false
 layout_mode = 2
 anchors_preset = 0
 
-[connection signal="pressed" from="Menus/MainMenu/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Menus/UpgradeMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="Menus/PauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="Menus/ResultMenu/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Menus/MainMenu/GridContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Menus/UpgradeMenu/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Menus/PauseMenu/GridContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Menus/ResultMenu/GridContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 
 [editable path="Menus/MainMenu"]
 [editable path="Menus/UpgradeMenu"]
