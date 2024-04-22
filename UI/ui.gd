@@ -1,8 +1,10 @@
 extends CanvasLayer
 
-@onready var main_menu: Control = $MainMenu
-@onready var pause_menu: Control = $PauseMenu
-@onready var result_menu: Control = $ResultMenu
+@onready var menus: Control = $Menus
+@onready var main_menu: Control = $Menus/MainMenu
+@onready var upgrade_menu: Control = $Menus/UpgradeMenu
+@onready var pause_menu: Control = $Menus/PauseMenu
+@onready var result_menu: Control = $Menus/ResultMenu
 @onready var hud: Control = $HUD
 
 func _ready() -> void:
@@ -16,6 +18,9 @@ func _process(_delta: float) -> void:
 	update_hud()
 	if Game.is_started and Input.is_action_just_pressed("menu"):
 		Game.game_pause.emit()
+	if Input.is_action_just_pressed("upgrade"):
+		Game.game_pause.emit()
+		show_upgrade_menu()
 
 func update_hud() -> void:
 	if Game.player:
@@ -26,20 +31,27 @@ func update_hud() -> void:
 			"\nP: ", Game.player.upgrade_point
 		)
 
+func menus_hide() -> void:
+	for menu in menus.get_children():
+		menu.hide()
+
 func game_start() -> void:
-	main_menu.hide()
+	menus_hide()
 	hud.show()
+
+func show_upgrade_menu() -> void:
+	upgrade_menu.show()
 
 func game_pause() -> void:
 	pause_menu.show()
 	hud.hide()
 
 func game_resume() -> void:
-	pause_menu.hide()
+	menus_hide()
 	hud.show()
 
 func game_reset() -> void:
-	result_menu.hide()
+	menus_hide()
 	main_menu.show()
 
 func game_over() -> void:

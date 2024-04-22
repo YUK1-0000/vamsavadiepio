@@ -10,7 +10,7 @@ var auto_fire := false
 var required_exp: int = 100
 var upgrade_point: int
 
-func _ready():
+func _ready() -> void:
 	Game.game_start.connect(enable_camera)
 	Game.game_reset.connect(disable_camera)
 

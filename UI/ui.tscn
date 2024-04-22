@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvr4wiuajxo5r"]
+[gd_scene load_steps=7 format=3 uid="uid://bvr4wiuajxo5r"]
 
 [ext_resource type="Script" path="res://UI/ui.gd" id="1_trhuw"]
 [ext_resource type="PackedScene" uid="uid://bbruftmabwo24" path="res://UI/main_menu.tscn" id="2_bjf0t"]
 [ext_resource type="PackedScene" uid="uid://chsw2n2q0yjop" path="res://UI/pause_menu.tscn" id="3_45ccx"]
+[ext_resource type="PackedScene" uid="uid://c3ugu5t2tta16" path="res://UI/upgrade_menu.tscn" id="3_pt1js"]
 [ext_resource type="PackedScene" uid="uid://ce6xi82kr1r3w" path="res://UI/hud.tscn" id="4_3dlix"]
 [ext_resource type="PackedScene" uid="uid://c5wll8xqcktmw" path="res://UI/result_menu.tscn" id="4_vdyri"]
 
@@ -10,21 +11,42 @@
 process_mode = 3
 script = ExtResource("1_trhuw")
 
-[node name="MainMenu" parent="." instance=ExtResource("2_bjf0t")]
-
-[node name="PauseMenu" parent="." instance=ExtResource("3_45ccx")]
-visible = false
-
-[node name="ResultMenu" parent="." instance=ExtResource("4_vdyri")]
-visible = false
-
 [node name="HUD" parent="." instance=ExtResource("4_3dlix")]
 visible = false
 
-[connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="PauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="ResultMenu/ContinueButton" to="." method="_on_continue_button_pressed"]
+[node name="Menus" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[editable path="MainMenu"]
-[editable path="PauseMenu"]
-[editable path="ResultMenu"]
+[node name="MainMenu" parent="Menus" instance=ExtResource("2_bjf0t")]
+layout_mode = 2
+anchors_preset = 0
+
+[node name="UpgradeMenu" parent="Menus" instance=ExtResource("3_pt1js")]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+
+[node name="PauseMenu" parent="Menus" instance=ExtResource("3_45ccx")]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+
+[node name="ResultMenu" parent="Menus" instance=ExtResource("4_vdyri")]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+
+[connection signal="pressed" from="Menus/MainMenu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Menus/UpgradeMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Menus/PauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Menus/ResultMenu/ContinueButton" to="." method="_on_continue_button_pressed"]
+
+[editable path="Menus/MainMenu"]
+[editable path="Menus/UpgradeMenu"]
+[editable path="Menus/PauseMenu"]
+[editable path="Menus/ResultMenu"]
