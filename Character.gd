@@ -12,12 +12,13 @@ enum MovingMode {CONSTANT, ACCELERATION}
 @export var level: int
 @export var exp: int
 @export var recoil: int
+@export var fire_rate: int
 @export var damage: int
 @export var knock_back: int
 @export var penetration: float = INF
 @export var multi_shot: float = 1
 @export var crit_rate: float
-@export var crit_dmg: float = 1
+@export var crit_dmg: float
 
 @onready var hp := hp_max
 
@@ -32,7 +33,7 @@ func movement(delta: float) -> void:
 				velocity = velocity.move_toward(direction * speed, friction * delta)
 
 func bump_into(character: Character) -> void:
-	character.take_damage(crit_dmg * damage if randf() <= crit_rate else damage)
+	character.take_damage(damage + damage * (crit_dmg if randf() <= crit_rate else 0))
 	character.get_knocked_back(velocity.normalized() * knock_back)
 	if not penetration:
 		die()

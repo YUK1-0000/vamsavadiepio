@@ -5,8 +5,11 @@ class_name Gun
 @export var bullet_scene: PackedScene
 
 @onready var shooter: Character = get_parent()
+@onready var interval_timer: Timer = $IntervalTimer
 
 func shoot() -> void:
+	if interval_timer.time_left:
+		return
 	var b: Bullet = bullet_scene.instantiate()
 	b.global_position = get_node("Muzzle").global_position
 	b.rotate(rotation)
@@ -16,5 +19,6 @@ func shoot() -> void:
 	b.crit_rate = shooter.crit_rate
 	b.crit_dmg = shooter.crit_dmg
 	shooter.get_knocked_back(Vector2.RIGHT.rotated(b.rotation + PI) * shooter.recoil)
-	shooter.interval_timer.start()
+	interval_timer.wait_time = 100. / shooter.fire_rate
+	interval_timer.start()
 	Game.bullets.add_child(b)

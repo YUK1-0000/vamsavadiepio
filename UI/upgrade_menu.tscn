@@ -17,9 +17,10 @@ layout_mode = 2
 [node name="UpgradeList" type="ItemList" parent="VBoxContainer"]
 layout_mode = 2
 auto_height = true
-item_count = 2
+item_count = 3
 item_0/text = "CRIT Rate"
 item_1/text = "CRIT DMG"
+item_2/text = "Fre Rate"
 
 [node name="UpgradeButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -28,3 +29,6 @@ text = "Upgrade"
 [node name="ResumeButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Resume"
+
+[connection signal="item_selected" from="VBoxContainer/UpgradeList" to="." method="_on_upgrade_list_item_selected"]
+[connection signal="pressed" from="VBoxContainer/UpgradeButton" to="." method="_on_upgrade_button_pressed"]

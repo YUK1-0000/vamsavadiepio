@@ -23,9 +23,8 @@ acceleration = 200
 friction = 100
 hp_max = 20
 recoil = 50
+fire_rate = 100
 damage = 10
-crit_rate = 0.5
-crit_dmg = 2.0
 
 [node name="Gun" parent="." instance=ExtResource("3_ya438")]
 bullet_scene = ExtResource("2_b522p")
