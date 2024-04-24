@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Player/player.gd" id="1_15nah"]
 [ext_resource type="Texture2D" uid="uid://cmbksv1enqmud" path="res://icon.svg" id="1_idbvv"]
 [ext_resource type="PackedScene" uid="uid://c4qmkdijgakj8" path="res://Bullet/bullet.tscn" id="2_b522p"]
-[ext_resource type="PackedScene" uid="uid://cfsiom3bmd31n" path="res://Gun/gun.tscn" id="3_ya438"]
+[ext_resource type="PackedScene" uid="uid://cfsiom3bmd31n" path="res://Barrel/barrel.tscn" id="2_y5mc0"]
 [ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://hurt_box.tscn" id="5_1d6ur"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tq6hi"]
@@ -21,12 +21,13 @@ moving_mode = 1
 speed = 200
 acceleration = 200
 friction = 100
-hp_max = 20
+hp_max = 10
 recoil = 50
 fire_rate = 100
 damage = 10
+knock_back = 50
 
-[node name="Gun" parent="." instance=ExtResource("3_ya438")]
+[node name="Gun" parent="." instance=ExtResource("2_y5mc0")]
 bullet_scene = ExtResource("2_b522p")
 
 [node name="Icon" type="Sprite2D" parent="."]

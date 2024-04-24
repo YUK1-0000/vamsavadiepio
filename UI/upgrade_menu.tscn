@@ -20,7 +20,7 @@ auto_height = true
 item_count = 5
 item_0/text = "CRIT Rate"
 item_1/text = "CRIT DMG"
-item_2/text = "Fre Rate"
+item_2/text = "Fire Rate"
 item_3/text = "Damage"
 item_4/text = "Multi Shot"
 

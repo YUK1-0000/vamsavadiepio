@@ -6,7 +6,7 @@ class_name Player
 @onready var camera: Camera2D = $Camera2D
 
 var auto_fire := false
-var max_exp: int = 50
+var max_exp: int = 40
 var upgrade_point: int
 
 func _ready() -> void:
@@ -14,11 +14,11 @@ func _ready() -> void:
 	Game.game_reset.connect(disable_camera)
 
 func _physics_process(delta: float) -> void:
-	#print(crit_dmg, " ", crit_rate, " ", fire_rate)
 	if Input.is_action_just_pressed("q"):
 		auto_fire = not auto_fire
 	
 	while exp >= max_exp:
+		level += 1
 		upgrade_point += 1
 		exp = 0
 		max_exp *= 1.5

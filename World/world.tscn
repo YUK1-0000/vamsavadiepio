@@ -21,6 +21,7 @@ scale = Vector2(9, 5.0625)
 texture = ExtResource("1_wkwmc")
 
 [node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="UI" parent="." instance=ExtResource("3_27rxw")]
 
