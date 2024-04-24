@@ -17,12 +17,13 @@ layout_mode = 2
 [node name="UpgradeList" type="ItemList" parent="VBoxContainer"]
 layout_mode = 2
 auto_height = true
-item_count = 5
+item_count = 6
 item_0/text = "CRIT Rate"
 item_1/text = "CRIT DMG"
 item_2/text = "Fire Rate"
 item_3/text = "Damage"
 item_4/text = "Multi Shot"
+item_5/text = "HP REGEN"
 
 [node name="UpgradeButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2

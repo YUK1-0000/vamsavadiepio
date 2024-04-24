@@ -12,6 +12,8 @@ func _on_upgrade_button_pressed() -> void:
 		return
 	Game.player.upgrade_point -= 1
 	match selected_item:
+		"HP REGEN":
+			Game.player.hp_regen += randf_range(.1, 1)
 		"CRIT Rate":
 			Game.player.crit_rate += randf_range(.1, 1)
 		"CRIT DMG":

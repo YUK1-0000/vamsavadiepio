@@ -9,6 +9,7 @@ enum MovingMode {CONSTANT, ACCELERATION}
 @export var acceleration: int
 @export var friction: int
 @export var hp_max: int
+@export var hp_regen: float
 @export var level: int
 @export var exp: int
 @export var recoil: int
@@ -38,6 +39,9 @@ func bump_into(character: Character) -> void:
 	if not penetration:
 		die()
 	penetration -= 1
+
+func regeneration(delta: float) -> void:
+	hp = min(hp_max, hp_regen * delta)
 
 func take_damage(dmg: float) -> void:
 	hp = max(0, hp - dmg)
