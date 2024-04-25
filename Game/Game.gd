@@ -12,8 +12,8 @@ var spawn_rate := 1
 var survival_time: float
 var is_started: bool
 
-const PLAYER_SCENE := preload("res://Player/player.tscn")
-const ENEMY_SCENE := preload("res://Enemy/enemy.tscn")
+const PLAYER_SCENE := preload("res://Characters/Player/player.tscn")
+const ENEMY_SCENE := preload("res://Characters/Enemy/enemy.tscn")
 
 signal game_start
 signal game_pause

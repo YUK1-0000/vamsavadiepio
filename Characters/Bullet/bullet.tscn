@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://c4qmkdijgakj8"]
 
-[ext_resource type="Script" path="res://Character/Bullet/bullet.gd" id="1_woqgq"]
-[ext_resource type="PackedScene" uid="uid://b38cda5v1w0oc" path="res://Character/hit_box.tscn" id="2_5qnwi"]
-[ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://Character/hurt_box.tscn" id="3_62ghn"]
-[ext_resource type="PackedScene" uid="uid://bq87trf3rrtd2" path="res://Character/Sprite/sprite.tscn" id="4_oemsx"]
-[ext_resource type="PackedScene" uid="uid://cv0hxp6fmhfts" path="res://Character/Sprite/color_circle.tscn" id="5_670nc"]
+[ext_resource type="Script" path="res://Characters/Bullet/bullet.gd" id="1_dwcth"]
+[ext_resource type="PackedScene" uid="uid://b38cda5v1w0oc" path="res://Characters/hit_box.tscn" id="2_3f1im"]
+[ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://Characters/hurt_box.tscn" id="3_7w6y1"]
+[ext_resource type="PackedScene" uid="uid://bq87trf3rrtd2" path="res://Characters/Sprite/sprite.tscn" id="4_cjyy5"]
+[ext_resource type="PackedScene" uid="uid://cv0hxp6fmhfts" path="res://Characters/Sprite/color_circle.tscn" id="5_i3u1j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ptklf"]
 radius = 14.0
@@ -16,26 +16,26 @@ radius = 14.0
 collision_layer = 2
 collision_mask = 13
 motion_mode = 1
-script = ExtResource("1_woqgq")
+script = ExtResource("1_dwcth")
 speed = 500
 penetration = 0.0
 
-[node name="HitBox" parent="." instance=ExtResource("2_5qnwi")]
+[node name="HitBox" parent="." instance=ExtResource("2_3f1im")]
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource("CircleShape2D_ptklf")
 
-[node name="HurtBox" parent="." instance=ExtResource("3_62ghn")]
+[node name="HurtBox" parent="." instance=ExtResource("3_7w6y1")]
 collision_layer = 8
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource("CircleShape2D_bhf7g")
 
-[node name="Sprite" parent="." instance=ExtResource("4_oemsx")]
+[node name="Sprite" parent="." instance=ExtResource("4_cjyy5")]
 custom_minimum_size = Vector2(24, 24)
 
-[node name="ColorCircle" parent="Sprite" instance=ExtResource("5_670nc")]
+[node name="ColorCircle" parent="Sprite" instance=ExtResource("5_i3u1j")]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -44,7 +44,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorCircle2" parent="Sprite" instance=ExtResource("5_670nc")]
+[node name="ColorCircle2" parent="Sprite" instance=ExtResource("5_i3u1j")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

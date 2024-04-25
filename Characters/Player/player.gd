@@ -2,7 +2,7 @@ extends Character
 
 class_name Player
 
-@onready var gun: Node2D = $Gun
+@onready var barrel: Node2D = $Barrel
 @onready var camera: Camera2D = $Camera2D
 
 var auto_fire := false
@@ -23,9 +23,9 @@ func _physics_process(delta: float) -> void:
 		exp = 0
 		max_exp *= 1.5
 	
-	gun.look_at(get_global_mouse_position())
+	barrel.look_at(get_global_mouse_position())
 	if auto_fire or Input.is_action_pressed("fire"):
-		gun.shoot()
+		barrel.shoot()
 	
 	direction = Input.get_vector("move_left", "move_right", "move_upward", "move_downward")
 	

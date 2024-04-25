@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cv0hxp6fmhfts"]
 
-[ext_resource type="Shader" path="res://Character/Sprite/circle.gdshader" id="1_awnj6"]
+[ext_resource type="Shader" path="res://Characters/Sprite/circle.gdshader" id="1_awnj6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0anln"]
 shader = ExtResource("1_awnj6")
