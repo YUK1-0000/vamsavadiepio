@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bauf6r6x8d263"]
 
-[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_kw0dt"]
-[ext_resource type="Texture2D" uid="uid://cmbksv1enqmud" path="res://icon.svg" id="2_5pbdn"]
-[ext_resource type="PackedScene" uid="uid://b38cda5v1w0oc" path="res://hit_box.tscn" id="3_puoo0"]
-[ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://hurt_box.tscn" id="4_ocpmc"]
+[ext_resource type="Script" path="res://Character/Enemy/enemy.gd" id="1_1sktj"]
+[ext_resource type="Texture2D" uid="uid://cmbksv1enqmud" path="res://icon.svg" id="2_pgbml"]
+[ext_resource type="PackedScene" uid="uid://b38cda5v1w0oc" path="res://Character/hit_box.tscn" id="3_4x6fs"]
+[ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://Character/hurt_box.tscn" id="4_1um52"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v7tqv"]
 radius = 24.0
@@ -18,7 +18,7 @@ radius = 32.0
 collision_layer = 4
 collision_mask = 7
 motion_mode = 1
-script = ExtResource("1_kw0dt")
+script = ExtResource("1_1sktj")
 moving_mode = 1
 speed = 100
 acceleration = 200
@@ -30,7 +30,7 @@ knock_back = 20
 
 [node name="Icon" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_5pbdn")
+texture = ExtResource("2_pgbml")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v7tqv")
@@ -43,7 +43,7 @@ offset_bottom = -73.0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HitBox" parent="." instance=ExtResource("3_puoo0")]
+[node name="HitBox" parent="." instance=ExtResource("3_4x6fs")]
 collision_mask = 2
 hit_type = 1
 
@@ -54,7 +54,7 @@ shape = SubResource("CircleShape2D_q7ubt")
 wait_time = 0.1
 one_shot = true
 
-[node name="HurtBox" parent="." instance=ExtResource("4_ocpmc")]
+[node name="HurtBox" parent="." instance=ExtResource("4_1um52")]
 collision_layer = 4
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]

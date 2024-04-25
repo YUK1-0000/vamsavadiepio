@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cmbksv1enqmud" path="res://icon.svg" id="1_wkwmc"]
 [ext_resource type="PackedScene" uid="uid://bvr4wiuajxo5r" path="res://UI/ui.tscn" id="3_27rxw"]
-[ext_resource type="PackedScene" uid="uid://c1cqao3ghyftq" path="res://Player/player.tscn" id="6_3hx2s"]
+[ext_resource type="PackedScene" uid="uid://c1cqao3ghyftq" path="res://Character/Player/player.tscn" id="6_3hx2s"]
 
 [node name="World" type="Node2D"]
 

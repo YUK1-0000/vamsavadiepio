@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1cqao3ghyftq"]
+
+[ext_resource type="Script" path="res://Character/Player/player.gd" id="1_d4abw"]
+[ext_resource type="PackedScene" uid="uid://cfsiom3bmd31n" path="res://Character/Barrel/barrel.tscn" id="2_2cala"]
+[ext_resource type="PackedScene" uid="uid://c4qmkdijgakj8" path="res://Character/Bullet/bullet.tscn" id="3_uyxqd"]
+[ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://Character/hurt_box.tscn" id="4_bae3i"]
+[ext_resource type="PackedScene" uid="uid://bq87trf3rrtd2" path="res://Character/Sprite/sprite.tscn" id="5_ryvqw"]
+[ext_resource type="PackedScene" uid="uid://cv0hxp6fmhfts" path="res://Character/Sprite/color_circle.tscn" id="6_k0tb1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tq6hi"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bxk7b"]
+radius = 32.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 15
+motion_mode = 1
+script = ExtResource("1_d4abw")
+moving_mode = 1
+speed = 200
+acceleration = 200
+friction = 100
+hp_max = 10
+recoil = 50
+fire_rate = 100
+damage = 10
+knock_back = 50
+
+[node name="Barrel" parent="." instance=ExtResource("2_2cala")]
+position = Vector2(32, 0)
+bullet_scene = ExtResource("3_uyxqd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tq6hi")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = -40.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HurtBox" parent="." instance=ExtResource("4_bae3i")]
+collision_layer = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("CircleShape2D_bxk7b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+enabled = false
+position_smoothing_enabled = true
+position_smoothing_speed = 16.0
+
+[node name="Sprite" parent="." instance=ExtResource("5_ryvqw")]
+custom_minimum_size = Vector2(64, 64)
+
+[node name="ColorCircle" parent="Sprite" instance=ExtResource("6_k0tb1")]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorCircle2" parent="Sprite" instance=ExtResource("6_k0tb1")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[editable path="HurtBox"]
