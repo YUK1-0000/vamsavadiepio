@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1cqao3ghyftq"]
+[gd_scene load_steps=9 format=3 uid="uid://c1cqao3ghyftq"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_15nah"]
-[ext_resource type="Texture2D" uid="uid://cmbksv1enqmud" path="res://icon.svg" id="1_idbvv"]
 [ext_resource type="PackedScene" uid="uid://c4qmkdijgakj8" path="res://Bullet/bullet.tscn" id="2_b522p"]
 [ext_resource type="PackedScene" uid="uid://cfsiom3bmd31n" path="res://Barrel/barrel.tscn" id="2_y5mc0"]
+[ext_resource type="Texture2D" uid="uid://d38o2aleigay0" path="res://Asset/s5dc6c8ipqix.png" id="4_ax546"]
 [ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://hurt_box.tscn" id="5_1d6ur"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nblh6"]
+atlas = ExtResource("4_ax546")
+region = Rect2(3099, 6247, 145, 144)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tq6hi"]
 radius = 24.0
@@ -32,7 +36,7 @@ bullet_scene = ExtResource("2_b522p")
 
 [node name="Icon" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_idbvv")
+texture = SubResource("AtlasTexture_nblh6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tq6hi")
