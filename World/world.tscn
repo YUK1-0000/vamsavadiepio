@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxg2y4uovcik8"]
+[gd_scene load_steps=5 format=3 uid="uid://dxg2y4uovcik8"]
 
 [ext_resource type="Texture2D" uid="uid://cmbksv1enqmud" path="res://icon.svg" id="1_wkwmc"]
 [ext_resource type="PackedScene" uid="uid://bvr4wiuajxo5r" path="res://UI/ui.tscn" id="3_27rxw"]
+[ext_resource type="PackedScene" uid="uid://bnwq4hbv70jl5" path="res://UI/damage_label.tscn" id="4_rcuj1"]
 [ext_resource type="PackedScene" uid="uid://c1cqao3ghyftq" path="res://Characters/Player/player.tscn" id="6_3hx2s"]
 
 [node name="World" type="Node2D"]
@@ -25,8 +26,6 @@ wait_time = 0.5
 
 [node name="UI" parent="." instance=ExtResource("3_27rxw")]
 
-[node name="Player" parent="." instance=ExtResource("6_3hx2s")]
-
 [node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2(1152, 648)
 collision_mask = 0
@@ -34,3 +33,12 @@ collision_mask = 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
 position = Vector2(-576, -324)
 polygon = PackedVector2Array(-576, 324, 576, 324, 576, -324, -576, -324, -576, 324, -629, 382, -624, -368, 672, -412, 654, 394, -629, 382)
+
+[node name="DamageLabel" parent="." instance=ExtResource("4_rcuj1")]
+offset_left = 216.0
+offset_top = 264.0
+offset_right = 392.0
+offset_bottom = 338.0
+
+[node name="Player" parent="." instance=ExtResource("6_3hx2s")]
+position = Vector2(560, 288)

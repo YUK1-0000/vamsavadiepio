@@ -8,7 +8,7 @@ enum MovingMode {CONSTANT, ACCELERATION}
 @export var speed: int
 @export var acceleration: int
 @export var friction: int
-@export var hp_max: int
+@export var hp: int
 @export var hp_regen: float
 @export var level: int
 @export var exp: int
@@ -21,7 +21,7 @@ enum MovingMode {CONSTANT, ACCELERATION}
 @export var crit_rate: float
 @export var crit_dmg: float
 
-@onready var hp := hp_max
+var hp_max := hp
 
 func movement(delta: float) -> void:
 	match moving_mode:
@@ -33,15 +33,18 @@ func movement(delta: float) -> void:
 			else:
 				velocity = velocity.move_toward(direction * speed, friction * delta)
 
+func regeneration(delta: float) -> void:
+	#hpf += hp_regen * delta
+	print(hp_max, hp + hp_regen * delta)
+	return
+	hp = min(hp_max, hp + hp_regen * delta)
+
 func bump_into(character: Character) -> void:
 	character.take_damage(damage + damage * (crit_dmg if randf() <= crit_rate else 0))
 	character.get_knocked_back(velocity.normalized() * knock_back)
 	if not penetration:
 		die()
 	penetration -= 1
-
-func regeneration(delta: float) -> void:
-	hp = min(hp_max, hp_regen * delta)
 
 func take_damage(dmg: float) -> void:
 	hp = max(0, hp - dmg)

@@ -21,6 +21,7 @@ func _physics_process(delta: float) -> void:
 		level += 1
 		upgrade_point += 1
 		exp = 0
+		
 		max_exp *= 1.5
 	
 	barrel.look_at(get_global_mouse_position())
@@ -29,6 +30,7 @@ func _physics_process(delta: float) -> void:
 	
 	direction = Input.get_vector("move_left", "move_right", "move_upward", "move_downward")
 	
+	#regeneration(delta)
 	movement(delta)
 	move_and_slide()
 	

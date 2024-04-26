@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bnwq4hbv70jl5"]
+
+[node name="DamageLabel" type="RichTextLabel"]
+offset_right = 176.0
+offset_bottom = 74.0
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "[color=red]text"
