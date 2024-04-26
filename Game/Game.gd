@@ -2,6 +2,7 @@ extends Node
 
 @onready var world: Node2D = get_tree().root.get_node("World")
 @onready var wall: StaticBody2D = world.get_node("Wall")
+@onready var ui := world.get_node("UI")
 @onready var player: Player
 @onready var enemies: Node2D = world.get_node("Enemies")
 @onready var bullets: Node2D = world.get_node("Bullets")

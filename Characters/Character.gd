@@ -48,6 +48,7 @@ func bump_into(character: Character) -> void:
 
 func take_damage(dmg: float) -> void:
 	hp = max(0, hp - dmg)
+	Game.ui.spawn_damage_label(global_position, dmg)
 
 func get_knocked_back(kb_vec: Vector2) -> void:
 	velocity += kb_vec

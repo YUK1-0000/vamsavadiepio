@@ -7,6 +7,8 @@ extends CanvasLayer
 @onready var result_menu: CenterContainer = $Menus/ResultMenu
 @onready var hud: Control = $HUD
 
+const DAMAGE_LABEL_SCENE := preload("res://UI/damage_label.tscn")
+
 func _ready() -> void:
 	Game.game_start.connect(game_start)
 	Game.game_resume.connect(game_resume)
@@ -35,6 +37,12 @@ func update_hud() -> void:
 			"\nCRIT DMG: ", Game.player.crit_dmg, 
 			"\nMulti Shot: ", Game.player.multi_shot
 		)
+
+func spawn_damage_label(pos: Vector2, dmg: int) -> void:
+	var l: Label = DAMAGE_LABEL_SCENE.instantiate()
+	l.text = str(dmg)
+	l.global_position = pos
+	Game.world.add_child(l)
 
 func hide_menus() -> void:
 	for menu in menus.get_children():
