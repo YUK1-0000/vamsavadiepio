@@ -69,15 +69,15 @@ enabled = false
 position_smoothing_enabled = true
 position_smoothing_speed = 16.0
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Sprite" type="Node2D" parent="."]
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Node2D"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Sprite"]
 position = Vector2(1.90735e-06, 7.92742e-06)
 scale = Vector2(64.0726, 64)
 mesh = SubResource("SphereMesh_enf4i")
 texture = SubResource("GradientTexture1D_u0mhn")
 
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="Node2D"]
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Sprite"]
 position = Vector2(1.43051e-06, 7.62939e-06)
 scale = Vector2(60.068, 60)
 mesh = SubResource("SphereMesh_b825d")
