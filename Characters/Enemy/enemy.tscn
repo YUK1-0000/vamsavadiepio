@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bauf6r6x8d263"]
+[gd_scene load_steps=13 format=3 uid="uid://bauf6r6x8d263"]
 
 [ext_resource type="Script" path="res://Characters/Enemy/enemy.gd" id="1_1sktj"]
-[ext_resource type="Texture2D" uid="uid://cmbksv1enqmud" path="res://icon.svg" id="2_pgbml"]
 [ext_resource type="PackedScene" uid="uid://b38cda5v1w0oc" path="res://Characters/hit_box.tscn" id="3_4x6fs"]
 [ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://Characters/hurt_box.tscn" id="4_1um52"]
 
@@ -13,6 +12,22 @@ radius = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ohm2x"]
 radius = 32.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_su7tm"]
+
+[sub_resource type="Gradient" id="Gradient_nx5qa"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mycso"]
+gradient = SubResource("Gradient_nx5qa")
+
+[sub_resource type="SphereMesh" id="SphereMesh_wmy85"]
+
+[sub_resource type="Gradient" id="Gradient_ggdq5"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c6koi"]
+gradient = SubResource("Gradient_ggdq5")
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -27,10 +42,6 @@ hp = 16
 exp = 10
 damage = 1
 knock_back = 20
-
-[node name="Icon" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_pgbml")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v7tqv")
@@ -59,6 +70,20 @@ collision_layer = 4
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource("CircleShape2D_ohm2x")
+
+[node name="Sprite" type="Node2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Sprite"]
+position = Vector2(-2.14577e-06, 3.03984e-06)
+scale = Vector2(64.0726, 64)
+mesh = SubResource("SphereMesh_su7tm")
+texture = SubResource("GradientTexture1D_mycso")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Sprite"]
+position = Vector2(0, 6.67572e-06)
+scale = Vector2(60.068, 60)
+mesh = SubResource("SphereMesh_wmy85")
+texture = SubResource("GradientTexture1D_c6koi")
 
 [editable path="HitBox"]
 [editable path="HurtBox"]

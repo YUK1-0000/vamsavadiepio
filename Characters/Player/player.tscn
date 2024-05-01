@@ -1,17 +1,31 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1cqao3ghyftq"]
+[gd_scene load_steps=13 format=3 uid="uid://c1cqao3ghyftq"]
 
 [ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_4t1e6"]
 [ext_resource type="PackedScene" uid="uid://cfsiom3bmd31n" path="res://Characters/Barrel/barrel.tscn" id="2_ledd1"]
 [ext_resource type="PackedScene" uid="uid://c4qmkdijgakj8" path="res://Characters/Bullet/bullet.tscn" id="3_7vvmr"]
 [ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://Characters/hurt_box.tscn" id="4_eib06"]
-[ext_resource type="PackedScene" uid="uid://bq87trf3rrtd2" path="res://Characters/Sprite/sprite.tscn" id="5_nupsc"]
-[ext_resource type="PackedScene" uid="uid://cv0hxp6fmhfts" path="res://Characters/Sprite/color_circle.tscn" id="6_0rera"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tq6hi"]
 radius = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bxk7b"]
 radius = 32.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_enf4i"]
+
+[sub_resource type="Gradient" id="Gradient_300ur"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u0mhn"]
+gradient = SubResource("Gradient_300ur")
+
+[sub_resource type="SphereMesh" id="SphereMesh_b825d"]
+
+[sub_resource type="Gradient" id="Gradient_dv780"]
+colors = PackedColorArray(0, 0, 1, 1, 0, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qmmy8"]
+gradient = SubResource("Gradient_dv780")
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -55,28 +69,18 @@ enabled = false
 position_smoothing_enabled = true
 position_smoothing_speed = 16.0
 
-[node name="Sprite" parent="." instance=ExtResource("5_nupsc")]
-custom_minimum_size = Vector2(64, 64)
+[node name="Node2D" type="Node2D" parent="."]
 
-[node name="ColorCircle" parent="Sprite" instance=ExtResource("6_0rera")]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Node2D"]
+position = Vector2(1.90735e-06, 7.92742e-06)
+scale = Vector2(64.0726, 64)
+mesh = SubResource("SphereMesh_enf4i")
+texture = SubResource("GradientTexture1D_u0mhn")
 
-[node name="ColorCircle2" parent="Sprite" instance=ExtResource("6_0rera")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = -2.0
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Node2D"]
+position = Vector2(1.43051e-06, 7.62939e-06)
+scale = Vector2(60.068, 60)
+mesh = SubResource("SphereMesh_b825d")
+texture = SubResource("GradientTexture1D_qmmy8")
 
 [editable path="HurtBox"]
