@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://c1cqao3ghyftq"]
 
-[ext_resource type="Script" path="res://Characters/Player/player.gd" id="1_4t1e6"]
-[ext_resource type="PackedScene" uid="uid://cfsiom3bmd31n" path="res://Characters/Barrel/barrel.tscn" id="2_ledd1"]
-[ext_resource type="PackedScene" uid="uid://c4qmkdijgakj8" path="res://Characters/Bullet/bullet.tscn" id="3_7vvmr"]
-[ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://Characters/hurt_box.tscn" id="4_eib06"]
+[ext_resource type="Script" path="res://characters/Player/player.gd" id="1_4t1e6"]
+[ext_resource type="PackedScene" uid="uid://cfsiom3bmd31n" path="res://characters/Barrel/barrel.tscn" id="2_ledd1"]
+[ext_resource type="PackedScene" uid="uid://c4qmkdijgakj8" path="res://characters/Bullet/bullet.tscn" id="3_7vvmr"]
+[ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://characters/hurt_box.tscn" id="4_eib06"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tq6hi"]
 radius = 24.0

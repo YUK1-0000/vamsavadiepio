@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c3ugu5t2tta16"]
 
-[ext_resource type="Script" path="res://UI/upgrade_menu.gd" id="1_tquq5"]
+[ext_resource type="Script" path="res://ui/upgrade_menu.gd" id="1_tquq5"]
 
 [node name="UpgradeMenu" type="CenterContainer"]
 anchors_preset = 15
@@ -18,12 +18,12 @@ layout_mode = 2
 layout_mode = 2
 auto_height = true
 item_count = 6
-item_0/text = "CRIT Rate"
-item_1/text = "CRIT DMG"
-item_2/text = "Fire Rate"
-item_3/text = "Damage"
-item_4/text = "Multi Shot"
-item_5/text = "HP REGEN"
+item_0/text = "HP REGEN"
+item_1/text = "Damage"
+item_2/text = "CRIT Rate"
+item_3/text = "CRIT DMG"
+item_4/text = "Fire Rate"
+item_5/text = "Multi Shot"
 
 [node name="UpgradeButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2

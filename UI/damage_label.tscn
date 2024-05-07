@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bnwq4hbv70jl5"]
 
-[ext_resource type="Script" path="res://UI/damage_label.gd" id="1_g0kre"]
+[ext_resource type="Script" path="res://ui/damage_label.gd" id="1_g0kre"]
 
 [sub_resource type="Animation" id="Animation_rui00"]
 length = 0.001

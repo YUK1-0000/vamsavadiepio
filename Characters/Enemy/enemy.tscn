@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://bauf6r6x8d263"]
 
-[ext_resource type="Script" path="res://Characters/Enemy/enemy.gd" id="1_1sktj"]
-[ext_resource type="PackedScene" uid="uid://b38cda5v1w0oc" path="res://Characters/hit_box.tscn" id="3_4x6fs"]
-[ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://Characters/hurt_box.tscn" id="4_1um52"]
+[ext_resource type="Script" path="res://characters/Enemy/enemy.gd" id="1_1sktj"]
+[ext_resource type="PackedScene" uid="uid://b38cda5v1w0oc" path="res://characters/hit_box.tscn" id="3_4x6fs"]
+[ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://characters/hurt_box.tscn" id="4_1um52"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v7tqv"]
 radius = 24.0

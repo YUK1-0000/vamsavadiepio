@@ -54,4 +54,4 @@ func get_knocked_back(kb_vec: Vector2) -> void:
 	velocity += kb_vec
 
 func die() -> void:
-	queue_free()
+	pass

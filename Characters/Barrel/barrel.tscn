@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cfsiom3bmd31n"]
 
-[ext_resource type="Script" path="res://Characters/Barrel/barrel.gd" id="1_721s3"]
+[ext_resource type="Script" path="res://characters/Barrel/barrel.gd" id="1_721s3"]
 
 [node name="Barrel" type="Node2D"]
 script = ExtResource("1_721s3")
