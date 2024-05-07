@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BaseUpgrade" load_steps=2 format=3 uid="uid://bovsiny1mg6gj"]
+
+[ext_resource type="Script" path="res://resources/BaseUpgradeResource.gd" id="1_328nb"]
+
+[resource]
+script = ExtResource("1_328nb")
+name = "Null"
+description = "Null Upgrade."
+cost = 0
