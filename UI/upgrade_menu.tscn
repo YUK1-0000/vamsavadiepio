@@ -1,37 +1,49 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3ugu5t2tta16"]
+[gd_scene load_steps=3 format=3 uid="uid://c3ugu5t2tta16"]
 
-[ext_resource type="Script" path="res://ui/upgrade_menu.gd" id="1_tquq5"]
+[ext_resource type="Script" path="res://ui/upgrade_menu.gd" id="1_v777x"]
+[ext_resource type="PackedScene" uid="uid://csa3mlmo20q7i" path="res://ui/upgrade_option.tscn" id="1_vuhhy"]
 
-[node name="UpgradeMenu" type="CenterContainer"]
+[node name="UpgradeMenu" type="Control" node_paths=PackedStringArray("upgrade_option_array")]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_tquq5")
+script = ExtResource("1_v777x")
+upgrade_option_array = [null, null, null]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(300, 0)
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 192.0
+offset_top = 128.0
+offset_right = -192.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 120
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 240
+alignment = 1
+
+[node name="UpgradeOption" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_vuhhy")]
 layout_mode = 2
 
-[node name="UpgradeList" type="ItemList" parent="VBoxContainer"]
+[node name="UpgradeOption2" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_vuhhy")]
 layout_mode = 2
-auto_height = true
-item_count = 6
-item_0/text = "HP REGEN"
-item_1/text = "Damage"
-item_2/text = "CRIT Rate"
-item_3/text = "CRIT DMG"
-item_4/text = "Fire Rate"
-item_5/text = "Multi Shot"
 
-[node name="UpgradeButton" type="Button" parent="VBoxContainer"]
+[node name="UpgradeOption3" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_vuhhy")]
 layout_mode = 2
-text = "Upgrade"
 
-[node name="ResumeButton" type="Button" parent="VBoxContainer"]
+[node name="ResumeButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Resume"
-
-[connection signal="item_selected" from="VBoxContainer/UpgradeList" to="." method="_on_upgrade_list_item_selected"]
-[connection signal="pressed" from="VBoxContainer/UpgradeButton" to="." method="_on_upgrade_button_pressed"]

@@ -1,10 +1,10 @@
 extends CanvasLayer
 
 @onready var menus: Control = $Menus
-@onready var main_menu: CenterContainer = $Menus/MainMenu
-@onready var upgrade_menu: CenterContainer = $Menus/UpgradeMenu
-@onready var pause_menu: CenterContainer = $Menus/PauseMenu
-@onready var result_menu: CenterContainer = $Menus/ResultMenu
+@onready var main_menu: Control = $Menus/MainMenu
+@onready var upgrade_menu: Control = $Menus/UpgradeMenu
+@onready var pause_menu: Control = $Menus/PauseMenu
+@onready var result_menu: Control = $Menus/ResultMenu
 @onready var hud: Control = $HUD
 
 const DAMAGE_LABEL_SCENE := preload("res://UI/damage_label.tscn")
@@ -79,3 +79,4 @@ func _on_resume_button_pressed() -> void:
 
 func _on_continue_button_pressed() -> void:
 	Game.game_reset.emit()
+
