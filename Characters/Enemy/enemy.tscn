@@ -38,9 +38,8 @@ moving_mode = 1
 speed = 100
 acceleration = 200
 friction = 200
-hp = 16
+base_hp = 16
 exp = 10
-damage = 1
 knock_back = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

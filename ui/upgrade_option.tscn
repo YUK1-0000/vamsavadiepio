@@ -1,13 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://csa3mlmo20q7i"]
+[gd_scene load_steps=2 format=3 uid="uid://csa3mlmo20q7i"]
 
 [ext_resource type="Script" path="res://ui/upgrade_option.gd" id="1_8dtuq"]
-[ext_resource type="Resource" uid="uid://bovsiny1mg6gj" path="res://upgrades/NullUpgrade.tres" id="2_lfok1"]
 
 [node name="UpgradeOption" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_8dtuq")
-base_null_upgrade = ExtResource("2_lfok1")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

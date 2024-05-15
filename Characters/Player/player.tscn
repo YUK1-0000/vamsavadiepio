@@ -36,11 +36,10 @@ moving_mode = 1
 speed = 200
 acceleration = 200
 friction = 100
-hp = 10
+base_hp = 10
 hp_regen = 1.0
 recoil = 50
 fire_rate = 100
-damage = 10
 knock_back = 50
 
 [node name="Barrel" parent="." instance=ExtResource("2_ledd1")]
