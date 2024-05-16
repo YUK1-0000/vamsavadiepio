@@ -39,7 +39,7 @@ friction = 100
 base_hp = 10
 hp_regen = 1.0
 recoil = 50
-fire_rate = 100
+base_fire_rate = 100
 base_damage = 10
 knock_back = 50
 

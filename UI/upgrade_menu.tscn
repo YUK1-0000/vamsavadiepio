@@ -6,19 +6,19 @@
 
 [sub_resource type="Resource" id="Resource_ol12u"]
 script = ExtResource("2_wuc0g")
-name = "1"
-description = "1"
+name = "Damage"
+description = "+10~50%"
 cost = 1
-min_rate = 1.0
-max_rate = 1.0
+min_rate = 0.1
+max_rate = 0.5
 
 [sub_resource type="Resource" id="Resource_vrws8"]
 script = ExtResource("2_wuc0g")
-name = "2"
-description = "2"
-cost = 2
-min_rate = 2.0
-max_rate = 2.0
+name = "Fire Rate"
+description = "+10~50%"
+cost = 1
+min_rate = 0.1
+max_rate = 0.5
 
 [sub_resource type="Resource" id="Resource_j5qwl"]
 script = ExtResource("2_wuc0g")
