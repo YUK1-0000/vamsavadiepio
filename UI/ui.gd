@@ -53,7 +53,6 @@ func game_start() -> void:
 	hud.show()
 
 func show_upgrade_menu() -> void:
-	upgrade_menu.pick_random_upgrade()
 	upgrade_menu.show()
 
 func show_pause_menu() -> void:

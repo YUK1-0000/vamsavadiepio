@@ -35,4 +35,3 @@ polygon = PackedVector2Array(-576, 324, 576, 324, 576, -324, -576, -324, -576, 3
 
 [node name="Player" parent="." instance=ExtResource("6_3hx2s")]
 position = Vector2(560, 288)
-base_damage = 0

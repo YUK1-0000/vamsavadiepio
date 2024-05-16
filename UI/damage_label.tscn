@@ -64,7 +64,6 @@ libraries = {
 autoplay = "pop_up"
 
 [node name="LifeTimer" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true
 autostart = true
 

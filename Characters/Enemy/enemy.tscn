@@ -40,6 +40,7 @@ acceleration = 200
 friction = 200
 base_hp = 16
 exp = 10
+base_damage = 1
 knock_back = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

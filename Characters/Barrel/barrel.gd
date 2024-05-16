@@ -15,7 +15,7 @@ func shoot() -> void:
 		b.global_position = get_node("Muzzle").global_position
 		b.rotate(rotation)
 		b.direction = Vector2.RIGHT.rotated(rotation)
-		b.damage = shooter.damage
+		b.base_damage = shooter.damage
 		b.knock_back = shooter.knock_back
 		b.crit_rate = shooter.crit_rate
 		b.crit_dmg = shooter.crit_dmg

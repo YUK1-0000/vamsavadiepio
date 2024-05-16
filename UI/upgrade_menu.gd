@@ -2,13 +2,14 @@ extends Control
 
 class_name UpgradeMenu
 
-@export var available_upgrade: Array[BaseUpgrade] = []
+@export var upgrade_options: Array[UpgradeOption] = []
+@export var available_upgrades: Array[BaseUpgrade] = []
 
 func _ready() -> void:
-	for upgrade in available_upgrade:
-		var tmp = UpgradeOption.new()
-		tmp.set_upgrade_option(upgrade)
-		$MarginContainer/VBoxContainer/HBoxContainer.add_child(tmp)
+	var i := 0
+	for upgrade in available_upgrades:
+		upgrade_options[i].set_upgrade_option(upgrade)
+		i += 1
 
 #func pick_random_upgrade() -> void:
 	#for upgrade_option in upgrade_option_array:
