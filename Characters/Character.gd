@@ -13,7 +13,7 @@ enum MovingMode {CONSTANT, ACCELERATION}
 @export var level: int
 @export var exp: int
 @export var recoil: int
-@export var fire_rate: int
+@export var base_fire_rate: int
 @export var base_damage: int
 @export var knock_back: int
 @export var penetration: float = INF
@@ -23,6 +23,7 @@ enum MovingMode {CONSTANT, ACCELERATION}
 
 @onready var hp := base_hp
 @onready var max_hp := base_hp
+@onready var fire_rate := base_fire_rate
 @onready var damage := base_damage
 
 func movement(delta: float) -> void:
