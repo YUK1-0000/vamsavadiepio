@@ -32,7 +32,7 @@ func update_hud() -> void:
 			"\nExp: ", Game.player.exp,
 			"\nUpgrade Point: ", Game.player.upgrade_point, 
 			"\nFire Rate: ", Game.player.fire_rate, 
-			"\nDamage: ", Game.player.damage, 
+			"\nDamage: ", Game.player.damage, "(", Game.player.base_damage, "+", Game.player.damage - Game.player.base_damage, ")",  
 			"\nCRIT Rate: ", Game.player.crit_rate, 
 			"\nCRIT DMG: ", Game.player.crit_dmg, 
 			"\nMulti Shot: ", Game.player.multi_shot
