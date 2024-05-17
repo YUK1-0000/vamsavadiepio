@@ -32,15 +32,17 @@ func update_hud() -> void:
 			"\nExp: ", Game.player.exp,
 			"\nUpgrade Point: ", Game.player.upgrade_point, 
 			"\nFire Rate: ", Game.player.fire_rate, 
-			"\nDamage: ", Game.player.damage, "(", Game.player.base_damage, "+", Game.player.damage - Game.player.base_damage, ")",  
+			"\nDamage: ", Game.player.damage,  
 			"\nCRIT Rate: ", Game.player.crit_rate, 
 			"\nCRIT DMG: ", Game.player.crit_dmg, 
 			"\nMulti Shot: ", Game.player.multi_shot
 		)
 
-func spawn_damage_label(pos: Vector2, dmg: int) -> void:
+func spawn_damage_label(pos: Vector2, dmg: int, crit_hit: int) -> void:
 	var l: Label = DAMAGE_LABEL_SCENE.instantiate()
 	l.text = str(dmg)
+	for _i in crit_hit:
+		l.text += "*"
 	l.global_position = pos
 	Game.world.add_child(l)
 

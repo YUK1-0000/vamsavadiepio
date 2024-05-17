@@ -18,13 +18,15 @@ enum MovingMode {CONSTANT, ACCELERATION}
 @export var knock_back: int
 @export var penetration: float = INF
 @export var multi_shot: float = 1
-@export var crit_rate: float
-@export var crit_dmg: float
+@export var base_crit_rate: float
+@export var base_crit_dmg: float
 
 @onready var hp := base_hp
 @onready var max_hp := base_hp
 @onready var fire_rate := base_fire_rate
 @onready var damage := base_damage
+@onready var crit_rate := base_crit_rate
+@onready var crit_dmg := base_crit_dmg
 
 func movement(delta: float) -> void:
 	match moving_mode:
@@ -43,15 +45,17 @@ func regeneration(delta: float) -> void:
 	hp = min(max_hp, hp + hp_regen * delta)
 
 func bump_into(character: Character) -> void:
-	character.take_damage(damage + damage * (crit_dmg if randf() <= crit_rate else 0))
+	var crit_hit: int = int(crit_rate) + int(randf() <= crit_rate - int(crit_rate))
+	var dmg := damage + damage * crit_dmg * crit_hit
+	character.take_damage(dmg)
 	character.get_knocked_back(velocity.normalized() * knock_back)
+	Game.ui.spawn_damage_label(global_position, dmg, crit_hit)
 	if not penetration:
 		die()
 	penetration -= 1
 
 func take_damage(dmg: float) -> void:
 	hp = max(0, hp - dmg)
-	Game.ui.spawn_damage_label(global_position, dmg)
 
 func get_knocked_back(kb_vec: Vector2) -> void:
 	velocity += kb_vec
@@ -60,7 +64,8 @@ func die() -> void:
 	queue_free()
 
 func upgrade(upgrade_name: String, min_rate: float, max_rate) -> void:
+	var tmp := upgrade_name.to_snake_case()
 	set(
-		upgrade_name, 
-		get(upgrade_name) + get("base_" + upgrade_name) * randf_range(min_rate, max_rate)
+		tmp, 
+		get(tmp) + get("base_" + tmp) * randf_range(min_rate, max_rate)
 	)

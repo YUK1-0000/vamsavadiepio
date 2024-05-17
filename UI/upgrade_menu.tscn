@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3ugu5t2tta16"]
+[gd_scene load_steps=8 format=3 uid="uid://c3ugu5t2tta16"]
 
 [ext_resource type="Script" path="res://ui/upgrade_menu.gd" id="1_v777x"]
 [ext_resource type="Script" path="res://resources/BaseUpgradeResource.gd" id="2_wuc0g"]
@@ -22,11 +22,19 @@ max_rate = 0.5
 
 [sub_resource type="Resource" id="Resource_j5qwl"]
 script = ExtResource("2_wuc0g")
-name = "3"
-description = "3"
-cost = 3
-min_rate = 3.0
-max_rate = 3.0
+name = "Crit Rate"
+description = "+10~50%"
+cost = 1
+min_rate = 0.1
+max_rate = 0.5
+
+[sub_resource type="Resource" id="Resource_eisnf"]
+script = ExtResource("2_wuc0g")
+name = "Crit DMG"
+description = "+10~50%"
+cost = 1
+min_rate = 0.1
+max_rate = 0.5
 
 [node name="UpgradeMenu" type="Control" node_paths=PackedStringArray("upgrade_options")]
 layout_mode = 3
@@ -36,8 +44,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v777x")
-upgrade_options = [NodePath("MarginContainer/VBoxContainer/HBoxContainer/UpgradeOption"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/UpgradeOption2"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/UpgradeOption3")]
-available_upgrades = Array[ExtResource("2_wuc0g")]([SubResource("Resource_ol12u"), SubResource("Resource_vrws8"), SubResource("Resource_j5qwl")])
+upgrade_options = [NodePath("MarginContainer/VBoxContainer/HBoxContainer/UpgradeOption"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/UpgradeOption2"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/UpgradeOption3"), NodePath("MarginContainer/VBoxContainer/HBoxContainer/UpgradeOption4")]
+available_upgrades = Array[ExtResource("2_wuc0g")]([SubResource("Resource_ol12u"), SubResource("Resource_vrws8"), SubResource("Resource_j5qwl"), SubResource("Resource_eisnf")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -68,6 +76,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="UpgradeOption3" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_56f6b")]
+layout_mode = 2
+
+[node name="UpgradeOption4" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_56f6b")]
 layout_mode = 2
 
 [node name="ResumeButton" type="Button" parent="MarginContainer/VBoxContainer"]

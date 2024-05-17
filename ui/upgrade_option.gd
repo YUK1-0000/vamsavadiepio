@@ -20,4 +20,4 @@ func set_upgrade_option(upgrade: BaseUpgrade) -> void:
 	max_rate = upgrade.max_rate
 
 func _on_purchase_button_pressed() -> void:
-	Game.player.upgrade(name_label.text.to_snake_case(), min_rate, max_rate)
+	Game.player.upgrade(name_label.text, min_rate, max_rate)

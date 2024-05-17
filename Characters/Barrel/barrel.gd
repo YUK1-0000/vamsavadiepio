@@ -17,8 +17,8 @@ func shoot() -> void:
 		b.direction = Vector2.RIGHT.rotated(rotation)
 		b.base_damage = shooter.damage
 		b.knock_back = shooter.knock_back
-		b.crit_rate = shooter.crit_rate
-		b.crit_dmg = shooter.crit_dmg
+		b.base_crit_rate = shooter.crit_rate
+		b.base_crit_dmg = shooter.crit_dmg
 		Game.bullets.add_child(b)
 		shooter.get_knocked_back(Vector2.RIGHT.rotated(b.rotation + PI) * shooter.recoil)
 	interval_timer.wait_time = 100. / shooter.fire_rate
