@@ -13,8 +13,8 @@ func shoot() -> void:
 	for _i in range(int(shooter.multi_shot) + int((shooter.multi_shot - int(shooter.multi_shot)) > randf())):
 		var b: Bullet = bullet_scene.instantiate()
 		b.global_position = get_node("Muzzle").global_position
-		b.rotate(rotation)
-		b.direction = Vector2.RIGHT.rotated(rotation)
+		b.rotate(rotation + randfn(0, shooter.bullet_spread / 4) * shooter.bullet_spread)
+		b.direction = Vector2.RIGHT.rotated(b.rotation)
 		b.base_damage = shooter.damage
 		b.knock_back = shooter.knock_back
 		b.base_crit_rate = shooter.crit_rate

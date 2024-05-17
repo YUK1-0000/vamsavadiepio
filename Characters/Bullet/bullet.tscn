@@ -49,14 +49,14 @@ shape = SubResource("CircleShape2D_bhf7g")
 [node name="Sprite" type="Node2D" parent="."]
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Sprite"]
-position = Vector2(9.53674e-07, 3.45707e-06)
+position = Vector2(5.68434e-14, 0)
 scale = Vector2(28.0317, 28)
 mesh = SubResource("SphereMesh_67ocj")
 texture = SubResource("GradientTexture1D_n4hu3")
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="Sprite"]
-position = Vector2(3.57628e-07, 3.57628e-06)
-scale = Vector2(24.0272, 24)
+position = Vector2(0, -5.96046e-08)
+scale = Vector2(24.0272, 24.25)
 mesh = SubResource("SphereMesh_7wo5d")
 texture = SubResource("GradientTexture1D_28j7n")
 

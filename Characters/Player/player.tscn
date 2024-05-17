@@ -38,6 +38,7 @@ acceleration = 200
 friction = 100
 base_hp = 10
 hp_regen = 1.0
+bullet_spread = 0.524
 recoil = 50
 base_fire_rate = 100
 base_damage = 10

@@ -12,12 +12,13 @@ enum MovingMode {CONSTANT, ACCELERATION}
 @export var hp_regen: float
 @export var level: int
 @export var exp: int
+@export var bullet_spread: float
 @export var recoil: int
 @export var base_fire_rate: int
 @export var base_damage: int
 @export var knock_back: int
 @export var penetration: float = INF
-@export var multi_shot: float = 1
+@export var base_multi_shot: float = 1
 @export var base_crit_rate: float
 @export var base_crit_dmg: float
 
@@ -25,6 +26,7 @@ enum MovingMode {CONSTANT, ACCELERATION}
 @onready var max_hp := base_hp
 @onready var fire_rate := base_fire_rate
 @onready var damage := base_damage
+@onready var multi_shot := base_multi_shot
 @onready var crit_rate := base_crit_rate
 @onready var crit_dmg := base_crit_dmg
 
