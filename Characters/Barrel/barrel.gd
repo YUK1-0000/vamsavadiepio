@@ -1,6 +1,6 @@
 extends Node2D
 
-class_name Gun
+class_name Barrel
 
 @export var bullet_scene: PackedScene
 
