@@ -1,6 +1,4 @@
-extends Character
-
-class_name Player
+class_name Player extends Character
 
 @onready var barrel: Node2D = $Barrel
 @onready var camera: Camera2D = $Camera2D
@@ -44,3 +42,6 @@ func enable_camera() -> void:
 
 func disable_camera() -> void:
 	camera.enabled = false
+
+func die() -> void:
+	Game.game_over.emit()

@@ -1,4 +1,4 @@
-extends CanvasLayer
+class_name UI extends CanvasLayer
 
 @onready var menus: Control = $Menus
 @onready var main_menu: Control = $Menus/MainMenu

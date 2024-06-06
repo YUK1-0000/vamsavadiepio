@@ -6,6 +6,9 @@
 
 [node name="World" type="Node2D"]
 
+[node name="Player" parent="." instance=ExtResource("6_3hx2s")]
+position = Vector2(560, 288)
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Bullets" type="Node2D" parent="."]
@@ -32,6 +35,3 @@ collision_mask = 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
 position = Vector2(-576, -324)
 polygon = PackedVector2Array(-576, 324, 576, 324, 576, -324, -576, -324, -576, 324, -629, 382, -624, -368, 672, -412, 654, 394, -629, 382)
-
-[node name="Player" parent="." instance=ExtResource("6_3hx2s")]
-position = Vector2(560, 288)

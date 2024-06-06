@@ -2,8 +2,8 @@ extends Node
 
 @onready var world: Node2D = get_tree().root.get_node("World")
 @onready var wall: StaticBody2D = world.get_node("Wall")
-@onready var ui := world.get_node("UI")
-@onready var player: Player
+@onready var ui: UI = world.get_node("UI")
+@onready var player: Player = world.get_node("Player")
 @onready var enemies: Node2D = world.get_node("Enemies")
 @onready var bullets: Node2D = world.get_node("Bullets")
 @onready var spawn_timer: Timer = world.get_node("SpawnTimer")
@@ -47,7 +47,7 @@ func resume() -> void:
 	get_tree().paused = false
 
 func over() -> void:
-	pause()
+	game_reset.emit()
 	is_started = false
 	survival_time = 0
 	spawn_timer.stop()

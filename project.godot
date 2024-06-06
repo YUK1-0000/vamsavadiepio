@@ -23,6 +23,10 @@ Game="*res://main/Game.gd"
 
 window/stretch/mode="canvas_items"
 
+[dotnet]
+
+project/assembly_name="vamsavadiepio"
+
 [input]
 
 fire={
