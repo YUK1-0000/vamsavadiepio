@@ -11,9 +11,9 @@ func _physics_process(delta: float) -> void:
 		direction = Vector2.RIGHT.rotated(get_angle_to(player.global_position))
 	else:
 		direction = Vector2.ZERO
-	$Label.text = str(hp)
+	$Label.text = str(current_stats.hp)
 	movement(delta)
 	move_and_slide()
-	if not hp:
+	if not current_stats.hp:
 		die()
-		Game.player.exp += exp
+		Game.player.current_stats.exp += current_stats.exp

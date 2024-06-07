@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://c1cqao3ghyftq"]
+[gd_scene load_steps=13 format=3 uid="uid://c1cqao3ghyftq"]
 
 [ext_resource type="Script" path="res://characters/Player/player.gd" id="1_4t1e6"]
-[ext_resource type="Resource" uid="uid://dympn4eggollm" path="res://characters/Player/PlayerBaseStats.tres" id="2_ff805"]
 [ext_resource type="PackedScene" uid="uid://cfsiom3bmd31n" path="res://characters/Barrel/barrel.tscn" id="2_ledd1"]
 [ext_resource type="PackedScene" uid="uid://c4qmkdijgakj8" path="res://characters/Bullet/bullet.tscn" id="3_7vvmr"]
 [ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://characters/hurt_box.tscn" id="4_eib06"]
@@ -33,7 +32,7 @@ collision_layer = 2
 collision_mask = 15
 motion_mode = 1
 script = ExtResource("1_4t1e6")
-base_stats = ExtResource("2_ff805")
+moving_mode = 1
 
 [node name="Barrel" parent="." instance=ExtResource("2_ledd1")]
 bullet_scene = ExtResource("3_7vvmr")

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=2 format=3 uid="uid://dympn4eggollm"]
+
+[ext_resource type="Script" path="res://resources/CharacterStatsResouurce.gd" id="1_qwqel"]
+
+[resource]
+script = ExtResource("1_qwqel")
+moving_mode = 1
+speed = 250
+acceleration = 250
+friction = 200
+max_hp = 10
+hp = 10
+hp_regen = 0.0
+exp = 0
+fire_rate = 100
+bullet_spread = 0.524
+multishot = 1.0
+recoil = 50
+penetration = inf
+knock_back = 100
+damage = 10
+crit_rate = 0.1
+crit_dmg = 0.1

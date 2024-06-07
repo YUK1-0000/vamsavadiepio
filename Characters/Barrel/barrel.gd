@@ -1,6 +1,4 @@
-extends Node2D
-
-class_name Barrel
+class_name Barrel extends Node2D
 
 @export var bullet_scene: PackedScene
 
@@ -10,16 +8,30 @@ class_name Barrel
 func shoot() -> void:
 	if interval_timer.time_left:
 			return
-	for _i in range(int(shooter.multi_shot) + int((shooter.multi_shot - int(shooter.multi_shot)) > randf())):
+	# multishotの整数部回＋小数部の確立で１回の射撃
+	var multishot: int = (
+		int(shooter.current_stats.multishot)
+		+ (
+			shooter.current_stats.multishot
+			- int(shooter.current_stats.multishot)
+		) > randf()
+	)
+	for _i in range(multishot):
 		var b: Bullet = bullet_scene.instantiate()
-		b.global_position = get_node("Muzzle").global_position
-		b.rotate(rotation + randfn(0, shooter.bullet_spread / 4) * shooter.bullet_spread)
-		b.direction = Vector2.RIGHT.rotated(b.rotation)
-		b.base_damage = shooter.damage
-		b.knock_back = shooter.knock_back
-		b.base_crit_rate = shooter.crit_rate
-		b.base_crit_dmg = shooter.crit_dmg
 		Game.bullets.add_child(b)
-		shooter.get_knocked_back(Vector2.RIGHT.rotated(b.rotation + PI) * shooter.recoil)
-	interval_timer.wait_time = 100. / shooter.fire_rate
+		b.global_position = get_node("Muzzle").global_position
+		b.rotate(
+			rotation + randfn(0, shooter.current_stats.bullet_spread / 4)
+			* shooter.current_stats.bullet_spread
+		)
+		b.direction = Vector2.RIGHT.rotated(b.rotation)
+		b.current_stats.damage = shooter.current_stats.damage
+		b.current_stats.knock_back = shooter.current_stats.knock_back
+		b.current_stats.crit_rate = shooter.current_stats.crit_rate
+		b.current_stats.crit_dmg = shooter.current_stats.crit_dmg
+		shooter.get_knocked_back(
+			Vector2.RIGHT.rotated(b.rotation + PI)
+			* shooter.current_stats.recoil
+		)
+	interval_timer.wait_time = 100. / shooter.current_stats.fire_rate
 	interval_timer.start()

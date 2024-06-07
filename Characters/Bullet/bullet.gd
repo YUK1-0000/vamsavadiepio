@@ -1,6 +1,4 @@
-extends Character
-
-class_name Bullet
+class_name Bullet extends Character
 
 func _physics_process(delta: float) -> void:
 	movement(delta)

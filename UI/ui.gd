@@ -29,13 +29,13 @@ func update_hud() -> void:
 		hud.get_node("Label").text = str(
 			"Survival Time: ", Game.survival_time,
 			"\nLevel: ", Game.player.level,
-			"\nExp: ", Game.player.exp,
+			"\nExp: ", Game.player.current_stats.exp,
 			"\nUpgrade Point: ", Game.player.upgrade_point, 
-			"\nFire Rate: ", Game.player.fire_rate, 
-			"\nDamage: ", Game.player.damage,  
-			"\nCRIT Rate: ", Game.player.crit_rate, 
-			"\nCRIT DMG: ", Game.player.crit_dmg, 
-			"\nMulti Shot: ", Game.player.multi_shot
+			"\nFire Rate: ", Game.player.current_stats.fire_rate, 
+			"\nDamage: ", Game.player.current_stats.damage,  
+			"\nCRIT Rate: ", Game.player.current_stats.crit_rate, 
+			"\nCRIT DMG: ", Game.player.current_stats.crit_dmg, 
+			"\nMulti Shot: ", Game.player.current_stats.multishot
 		)
 
 func spawn_damage_label(pos: Vector2, dmg: int, crit_hit: int) -> void:

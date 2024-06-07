@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://c4qmkdijgakj8"]
+[gd_scene load_steps=13 format=3 uid="uid://c4qmkdijgakj8"]
 
 [ext_resource type="Script" path="res://characters/Bullet/bullet.gd" id="1_dwcth"]
 [ext_resource type="PackedScene" uid="uid://b38cda5v1w0oc" path="res://characters/hit_box.tscn" id="2_3f1im"]
+[ext_resource type="Resource" uid="uid://dih2yj34c7stg" path="res://characters/Bullet/BulletBaseStats.tres" id="2_q4xme"]
 [ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://characters/hurt_box.tscn" id="3_7w6y1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ptklf"]
@@ -31,8 +32,7 @@ collision_layer = 2
 collision_mask = 13
 motion_mode = 1
 script = ExtResource("1_dwcth")
-speed = 500
-penetration = 0.0
+base_stats = ExtResource("2_q4xme")
 
 [node name="HitBox" parent="." instance=ExtResource("2_3f1im")]
 collision_mask = 4
@@ -61,7 +61,7 @@ mesh = SubResource("SphereMesh_7wo5d")
 texture = SubResource("GradientTexture1D_28j7n")
 
 [node name="LifeTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 one_shot = true
 autostart = true
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bauf6r6x8d263"]
+[gd_scene load_steps=14 format=3 uid="uid://bauf6r6x8d263"]
 
 [ext_resource type="Script" path="res://characters/Enemy/enemy.gd" id="1_1sktj"]
+[ext_resource type="Resource" uid="uid://lsofbalq3hf8" path="res://characters/Enemy/BaseEnemyStats.tres" id="2_7bris"]
 [ext_resource type="PackedScene" uid="uid://b38cda5v1w0oc" path="res://characters/hit_box.tscn" id="3_4x6fs"]
 [ext_resource type="PackedScene" uid="uid://dcla7jfwu2ge3" path="res://characters/hurt_box.tscn" id="4_1um52"]
 
@@ -34,14 +35,7 @@ collision_layer = 4
 collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_1sktj")
-moving_mode = 1
-speed = 100
-acceleration = 200
-friction = 200
-base_hp = 16
-exp = 10
-base_damage = 1
-knock_back = 20
+base_stats = ExtResource("2_7bris")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v7tqv")

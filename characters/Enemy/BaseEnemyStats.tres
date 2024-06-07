@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=2 format=3 uid="uid://lsofbalq3hf8"]
+
+[ext_resource type="Script" path="res://resources/CharacterStatsResouurce.gd" id="1_snppc"]
+
+[resource]
+script = ExtResource("1_snppc")
+moving_mode = 1
+speed = 150
+acceleration = 200
+friction = 150
+max_hp = 16
+hp = 16
+hp_regen = 0.0
+exp = 10
+fire_rate = 0
+bullet_spread = 0.0
+multishot = 0.0
+recoil = 0
+penetration = inf
+knock_back = 10
+damage = 1
+crit_rate = 0.0
+crit_dmg = 0.0

@@ -1,6 +1,4 @@
-extends Resource
-
-class_name BaseUpgrade
+class_name BaseUpgrade extends Resource
 
 @export var name: String = ""
 @export_multiline var description: String = ""
