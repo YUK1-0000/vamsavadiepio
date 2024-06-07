@@ -48,11 +48,3 @@ func get_knocked_back(kb_vec: Vector2) -> void:
 
 func die() -> void:
 	queue_free()
-
-func upgrade(upgrade_name: String, min_rate: float, max_rate) -> void:
-	# 要作り直し
-	var tmp := upgrade_name.to_snake_case()
-	set(
-		tmp, 
-		get(tmp) + get("base_" + tmp) * randf_range(min_rate, max_rate)
-	)

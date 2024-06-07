@@ -50,3 +50,17 @@ func disable_camera() -> void:
 
 func die() -> void:
 	Game.game_over.emit()
+
+func upgrade(upgrade_name: String, min_rate: float, max_rate) -> void:
+	if not upgrade_point:
+		return
+	upgrade_point -= 1
+	var snk_name: String = upgrade_name.to_snake_case()
+	current_stats.set(
+		snk_name, 
+		(
+			current_stats.get(snk_name)
+			+ base_stats.get(snk_name)
+			* randf_range(min_rate, max_rate)
+		)
+	)
