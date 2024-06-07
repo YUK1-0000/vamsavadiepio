@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_snppc")
 moving_mode = 1
-speed = 150
-acceleration = 200
+speed = 100
+acceleration = 100
 friction = 150
 max_hp = 16
 hp = 16
