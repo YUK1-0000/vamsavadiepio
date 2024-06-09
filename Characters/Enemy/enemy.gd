@@ -4,6 +4,7 @@ class_name Enemy
 
 @onready var player: Player = Game.world.get_node("Player")
 
+
 func _physics_process(delta: float) -> void:
 	if not Game.world.has_node("Player"):
 		player = null

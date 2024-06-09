@@ -8,7 +8,7 @@ class_name Barrel extends Node2D
 func shoot() -> void:
 	if interval_timer.time_left:
 			return
-	# multishotの整数部回＋小数部の確立で１回の射撃
+	# multishotの整数部回＋小数部の確率で１回の射撃
 	var multishot: int = (
 		int(shooter.current_stats.multishot)
 		+ (
@@ -29,6 +29,7 @@ func shoot() -> void:
 		b.current_stats.knock_back = shooter.current_stats.knock_back
 		b.current_stats.crit_rate = shooter.current_stats.crit_rate
 		b.current_stats.crit_dmg = shooter.current_stats.crit_dmg
+		# 反動
 		shooter.get_knocked_back(
 			Vector2.RIGHT.rotated(b.rotation + PI)
 			* shooter.current_stats.recoil

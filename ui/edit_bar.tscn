@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtmehm28mtxq5"]
+
+[ext_resource type="Script" path="res://ui/edit_bar.gd" id="1_35tg2"]
+
+[node name="EditBar" type="HBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -306.0
+offset_top = -16.0
+offset_right = 306.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_35tg2")
+
+[node name="NameLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Name"
+
+[node name="MinusButton" type="Button" parent="."]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "-"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CenterContainer"]
+custom_minimum_size = Vector2(360, 32)
+layout_mode = 2
+show_percentage = false
+
+[node name="ValuLabel" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "Value"
+
+[node name="PlusButton" type="Button" parent="."]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "+"
+
+[connection signal="pressed" from="MinusButton" to="." method="_on_minus_button_pressed"]
+[connection signal="value_changed" from="CenterContainer/ProgressBar" to="." method="_on_progress_bar_value_changed"]
+[connection signal="pressed" from="PlusButton" to="." method="_on_plus_button_pressed"]

@@ -6,6 +6,7 @@ class_name Character extends CharacterBody2D
 
 var direction: Vector2
 
+
 func movement(delta: float) -> void:
 	match current_stats.moving_mode:
 		current_stats.MovingMode.CONSTANT:
@@ -20,9 +21,11 @@ func movement(delta: float) -> void:
 					direction * current_stats.speed, current_stats.friction * delta
 				)
 
-func regeneration(delta: float) -> void:
+
+func regeneration(_delta: float) -> void:
 	# 未実装
 	pass
+
 
 func bump_into(character: Character) -> void:
 	var crit_hit: int = (
@@ -40,11 +43,14 @@ func bump_into(character: Character) -> void:
 		die()
 	current_stats.penetration -= 1
 
+
 func take_damage(dmg: float) -> void:
 	current_stats.hp = max(0, current_stats.hp - dmg)
 
+
 func get_knocked_back(kb_vec: Vector2) -> void:
 	velocity += kb_vec
+
 
 func die() -> void:
 	queue_free()

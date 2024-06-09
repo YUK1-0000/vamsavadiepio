@@ -7,13 +7,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="GridContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Main Menu"
 
-[node name="StartButton" type="Button" parent="GridContainer"]
+[node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Start"
+
+[node name="EditBaseStatsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Edit Base Stats"
